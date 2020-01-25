@@ -5,5 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class StorageService {
 
+  private userType: string = 'both';
+
   constructor() { }
+
+  setUserType(type: string) {
+    this.userType = type;
+  }
+
+  getUserType(): String {
+    return this.userType;
+  }
 }
