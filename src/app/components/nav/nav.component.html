@@ -1,0 +1,35 @@
+<nav class="nav">
+  <a href="/">
+    <img src="../../../assets/img/technojob.png" alt="logo technojob" class="logo">
+  </a>
+
+  <div class="bt-wrap">
+
+    <!-- login buttons -->
+    <a class="bt" routerLink="/signup" routerLinkActive="active-link" *ngIf="true">
+      <span>WORKER</span>
+    </a>
+    <a class="bt" routerLink="/login" routerLinkActive="active-link" *ngIf="true">
+      <span>COMPANY</span>
+    </a>
+
+    <!-- search zone -->
+    <!-- <input type="text" placeholder="Search by title" class="search" *ngIf="userService.getUser()" -->
+    <input type="text" placeholder="Search by job, company, city... " class="search" *ngIf="false"
+      (keyup)="mySearch($event)">
+
+    <!-- user zone -->
+    <!-- <div class="dropdown" *ngIf="userService.getUser()"> -->
+    <div class="dropdown" *ngIf="false">
+      <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        <img src="../../../assets/img/user.png" alt="user icon" class="user">
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" routerLink="/profile">Profile</a>
+        <p class="dropdown-item" (click)="logout()">Log out</p>
+      </div>
+    </div>
+  </div>
+</nav>

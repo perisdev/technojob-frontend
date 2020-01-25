@@ -1,0 +1,26 @@
+@import "../../../variables.scss";
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 80vw;
+
+  font-family: $main-fonts;
+  color: $main-font-color;
+  text-align: center;
+  
+  h1 {
+    font-size: 3.5em;
+
+    span {
+      color: $job-color
+    }
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+}
