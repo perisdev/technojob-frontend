@@ -5,15 +5,20 @@ import { Injectable } from '@angular/core';
 })
 export class StorageService {
 
-  private userType: string = 'both';
+  private userType: String = 'both';
+  private url: String = 'http://localhost:8000/api/';
 
   constructor() { }
 
-  setUserType(type: string) {
+  setUserType(type: String) {
     this.userType = type;
   }
 
   getUserType(): String {
     return this.userType;
+  }
+
+  getUrl(): String {
+    return this.url;
   }
 }
