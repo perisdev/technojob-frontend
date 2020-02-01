@@ -6,7 +6,7 @@
   <div class="bt-wrap">
 
     <!-- login buttons -->
-    <a class="bt " routerLink="/login/worker" routerLinkActive="active-link" *ngIf="true">
+    <a class="bt" routerLink="/login/worker" routerLinkActive="active-link" *ngIf="true">
       <span>WORKER</span>
     </a>
     <a class="bt" routerLink="/login/company" routerLinkActive="active-link" *ngIf="true">
@@ -15,12 +15,12 @@
 
     <!-- search zone -->
     <!-- <input type="text" placeholder="Search by title" class="search" *ngIf="userService.getUser()" -->
-    <input type="text" placeholder="Search by job, company, city... " class="search" *ngIf="true"
+    <input type="text" placeholder="Search by job, company, city... " class="search" *ngIf="false"
       (keyup)="mySearch($event)">
 
     <!-- user zone -->
     <!-- <div class="dropdown" *ngIf="userService.getUser()"> -->
-    <div class="dropdown" *ngIf="true">
+    <div class="dropdown" *ngIf="false">
       <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
         <img src="../../../assets/img/user.png" alt="user icon" class="user">

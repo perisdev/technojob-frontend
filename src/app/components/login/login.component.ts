@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    public store: StorageService) { }
+    public storage: StorageService) { }
 
   // to set focus in username.
   ngAfterViewInit() {
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
 
     this.route.paramMap.subscribe(params => {
-      this.store.setUserType(params.get('userType'));
+      this.storage.setUserType(params.get('userType'));
     });
   }
 

@@ -5,20 +5,52 @@ import { Injectable } from '@angular/core';
 })
 export class StorageService {
 
-  private userType: String = 'both';
-  private url: String = 'http://localhost:8000/api/';
+  private url: string = 'http://localhost:8000/api/';
+
+  private userType: string = 'both';
+  private user: object;
+
+  private cities: Array<string> = [];
 
   constructor() { }
 
-  setUserType(type: String) {
+  // URLs
+  public getUrl(): string {
+    return this.url;
+  }
+
+  // USERs
+  public setUserType(type: string) {
     this.userType = type;
   }
 
-  getUserType(): String {
+  public getUserType(): string {
     return this.userType;
   }
+  public getUser(): object {
+    return this.user;
+  }
 
-  getUrl(): String {
-    return this.url;
+  public setUser(user: object): void {
+    this.user = user;
+  }
+
+  // CITIEs
+  public setCities(cities: object): void {
+
+    Object.values(cities).map(item => {
+      this.cities.push(item['name']);
+    });
+  }
+
+  public getCityByName(value: string): number {
+
+    let regex = new RegExp(value,'i'); //constructor
+    return this.cities.findIndex(item => item.match(regex));
+  }
+
+  public getCityById(id: number): string {
+    
+    return this.cities[id]? this.cities[id]:null;
   }
 }

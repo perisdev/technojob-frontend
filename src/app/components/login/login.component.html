@@ -1,8 +1,8 @@
 <!-- <p>login {{ store.getUserType() }}</p> -->
 
 <div class="wrap">
-  <h1>Log in as a {{ store.getUserType() }}</h1>
-  <a [routerLink]="'/register/' + store.getUserType()" routerLinkActive="active-link" *ngIf="true">
+  <h1>Log in as a {{ storage.getUserType() }}</h1>
+  <a [routerLink]="'/register/' + storage.getUserType()" routerLinkActive="active-link" *ngIf="true">
     Create an account ?
   </a>
 

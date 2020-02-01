@@ -12,7 +12,6 @@ const routes: Routes = [
   // access
   { path: "login/:userType", component: LoginComponent},
   { path: "register/:userType", component: RegisterComponent}
-
 ];
 
 @NgModule({
