@@ -52,7 +52,6 @@ export class RegisterComponent implements OnInit {
 
         this.accessService.register(form.value).subscribe(
           res => {
-            console.log("res:", res);
             this.msg = res;
             this.msgClass = 'msgOk';
             // setTimeout(() => this.autoLogin(form), 500);

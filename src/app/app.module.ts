@@ -9,6 +9,8 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { WorkersiteComponent } from './components/workersite/workersite.component';
+import { CompanysiteComponent } from './components/companysite/companysite.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
     NavComponent,
     WelcomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    WorkersiteComponent,
+    CompanysiteComponent
   ],
   imports: [
     BrowserModule,
