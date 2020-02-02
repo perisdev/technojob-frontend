@@ -10,7 +10,6 @@ import { AccessService } from 'src/app/services/access.service';
 })
 export class RegisterComponent implements OnInit {
 
-
   // to select a DOM element.
   @ViewChild('username', { read: ElementRef, static: false })
   username;
@@ -48,24 +47,21 @@ export class RegisterComponent implements OnInit {
         
         form.controls['city_id'].setValue(this.storage.getCityById(city_id));
         form.value.city_id = city_id;
-        console.log("city -> " + form.value.city_id);
 
         this.accessService.register(form.value).subscribe(
           res => {
-            console.log("res:", res);
             this.msg = res;
             this.msgClass = 'msgOk';
-            // setTimeout(() => this.autoLogin(form), 500);
+            setTimeout(() => this.autoLogin(form.value), 500);
           },
           err => {
-            console.log("err:", err.error);
             this.msg = err.error;
             this.msgClass = 'msgKo';
           }
         );
 
       } else {
-        this.msg = { message: 'no valid city' };
+        this.msg = { message: '.. invalid city ..' };
       }
 
     } else {
@@ -74,21 +70,24 @@ export class RegisterComponent implements OnInit {
   }
 
   // auto login
-  // autoLogin(form) {
+  autoLogin(body: object) {
 
-  //   this.userService.login(form.value).subscribe(
-  //     res => {
+    body = { 
+      "email": `${body["email"]}`,
+      "password": `${body["password"]}`
+    };
 
-  //       let user:object = {
-  //         username: form.value.username,
-  //         email: form.value.email,
-  //         level: 2,
-  //       }
-
-  //       this.userService.setUser(user, res['token']);
-  //       setTimeout(() => this.router.navigate(['/movies/premieres']), 500);
-  //     },
-  //     err => this.msg = err.error
-  //   );
-  // }
+    this.accessService.login(body).subscribe(
+      res => {
+        this.msg = res;
+        this.msgClass = 'msgOk';
+        this.storage.persistUser(res["user"]);
+        setTimeout(() => this.router.navigate([`/${this.storage.getUserType()}site`]), 500);
+      },
+      err => {
+        this.msg = err.error;
+        this.msgClass = 'msgKo';
+      }
+    );
+  }
 }

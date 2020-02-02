@@ -28,11 +28,22 @@ export class StorageService {
     return this.userType;
   }
   public getUser(): object {
+
+    this.user = JSON.parse(localStorage.getItem('user'));
+
     return this.user;
   }
 
-  public setUser(user: object): void {
+  public persistUser(user: object): void {
     this.user = user;
+
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('userType', this.userType);
+    } else {
+      localStorage.removeItem('user');
+      localStorage.removeItem('userType');
+    }
   }
 
   // CITIEs
@@ -45,12 +56,12 @@ export class StorageService {
 
   public getCityByName(value: string): number {
 
-    let regex = new RegExp(value,'i'); //constructor
+    let regex = new RegExp(value, 'i');
     return this.cities.findIndex(item => item.match(regex));
   }
 
   public getCityById(id: number): string {
-    
-    return this.cities[id]? this.cities[id]:null;
+
+    return this.cities[id] ? this.cities[id] : null;
   }
 }

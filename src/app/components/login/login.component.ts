@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StorageService } from 'src/app/services/storage.service';
+import { AccessService } from 'src/app/services/access.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    public storage: StorageService) { }
+    private storage: StorageService,
+    private accessService: AccessService ) { }
 
   // to set focus in username.
   ngAfterViewInit() {
@@ -39,21 +41,24 @@ export class LoginComponent implements OnInit {
 
   logIn(form) {
 
-    if (form.status === 'VALID')
-      // this.userService.login(form.value).subscribe(
-      //   res => {
-      //     this.msg = res;
-      //     this.msgClass = 'msgOk';
-      //     setTimeout(() => this.autoProfile(res['token']), 1000);
-      //   },
-      //   err => {
-      //     this.msg = err.error;
-      //     this.msgClass = 'msgKo';
-      //   });
+    if (form.status === 'VALID') {
+      this.accessService.login(form.value).subscribe(
+        res => {
+          this.msg = res;
+          this.msgClass = 'msgOk';
+          this.storage.persistUser(res["user"]);
+          setTimeout(() => this.router.navigate([`/${this.storage.getUserType()}site`]), 500);
+        },
+        err => {
+          console.log("err:", err.error);
+          this.msg = err.error;
+          this.msgClass = 'msgKo';
+        }
+      );
 
-      this.msg = { message: '.. VALID ..' }    // toRemove
-    else
+    } else {
       this.msg = { message: '.. complement all data ..' }
+    }
   }
 
 }
