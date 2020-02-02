@@ -44,8 +44,6 @@ export class NavComponent implements OnInit {
   logout() {
     let user = this.storage.getUser();
 
-    console.log(user['token'], user['email']);
-
     this.accessService.logout(user['token'], { "email": `${user['email']}` }).subscribe(
       res => {
         this.storage.persistUser(undefined);
