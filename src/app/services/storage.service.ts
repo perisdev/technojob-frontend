@@ -37,7 +37,6 @@ export class StorageService {
   public persistUser(user: object): void {
     this.user = user;
 
-    // localStorage
     if (user) {
       localStorage.setItem('user', JSON.stringify(user));
       localStorage.setItem('userType', this.userType);
@@ -57,7 +56,7 @@ export class StorageService {
 
   public getCityByName(value: string): number {
 
-    let regex = new RegExp(value, 'i'); //constructor
+    let regex = new RegExp(value, 'i');
     return this.cities.findIndex(item => item.match(regex));
   }
 

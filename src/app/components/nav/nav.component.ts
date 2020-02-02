@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 import { StorageService } from '../../services/storage.service';
 import { AccessService } from 'src/app/services/access.service';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,44 +11,46 @@ import { AccessService } from 'src/app/services/access.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private storage: StorageService, private router: Router, private accessService: AccessService) {}
+  constructor(private storage: StorageService,
+    private router: Router,
+    private accessService: AccessService,
+    private profileService: ProfileService) { }
 
   ngOnInit() {
-  
+    this.isAlreadyLogged();
+  }
+
+  ngDoCheck() {
   }
 
   // user is already logged. 
   isAlreadyLogged() {
 
-    let token = localStorage.getItem('token');
+    let user = JSON.parse(localStorage.getItem('user'));
 
-    // if (token)
-    //   this.userService.getProfile(token).subscribe(
-    //     // is logged
-    //     res => {
-    //       this.userService.setUser(res, token);
-    //       this.router.navigate(['/movies/premieres']);
-    //     },
-    //     // no logged, clean localStorage
-    //     err => {
-    //       localStorage.removeItem('token');
-    //       localStorage.removeItem('user');
-    //     }
-    //   );
-  }  
+    if (user)
+      this.profileService.myProfile(user.token).subscribe(
+        // is logged
+        res => this.router.navigate([`/${localStorage.getItem('userType')}site`]),
+        
+        // no logged, clean localStorage
+        err => {
+          localStorage.removeItem('userType');
+          localStorage.removeItem('user');
+        }
+      );
+  }
 
-  logout(){
+  logout() {
     let user = this.storage.getUser();
 
     console.log(user['token'], user['email']);
 
-    this.accessService.logout(user['token'], { "email": `${user['email']}`}).subscribe(
+    this.accessService.logout(user['token'], { "email": `${user['email']}` }).subscribe(
       res => {
-        console.log("front: logout Ok");
         this.storage.persistUser(undefined);
         this.router.navigate(['']);
       },
-      err => console.log(err)  // removeMe
-    )
+      err => console.log(err));
   }
 }
