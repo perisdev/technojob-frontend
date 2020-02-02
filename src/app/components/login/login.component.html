@@ -1,21 +1,22 @@
 <!-- <p>login {{ store.getUserType() }}</p> -->
-
 <div class="wrap">
-  <h1>Log in as a {{ storage.getUserType() }}</h1>
-  <a [routerLink]="'/register/' + storage.getUserType()" routerLinkActive="active-link" *ngIf="true">
-    Create an account ?
-  </a>
 
-  <form (submit)="logIn(form)" #form="ngForm">
-    <input type="email" placeholder="*e-mail" ngModel #email="ngModel" name="email" required>
-    <input type="password" placeholder="*password" ngModel #password="ngModel" name="password" required>
+  <div class="login">
+    <h1>Log in as a {{ storage.getUserType() }}</h1>
+    <a [routerLink]="'/register/' + storage.getUserType()" routerLinkActive="active-link" *ngIf="true">
+      Create an account ?
+    </a>
 
-    <span class="required">* required data</span>
-    <button>Log in</button>
-  </form>
+    <form (submit)="logIn(form)" #form="ngForm">
+      <input type="email" placeholder="*e-mail" ngModel #email="ngModel" name="email" required>
+      <input type="password" placeholder="*password" ngModel #password="ngModel" name="password" required>
 
-  <span [class]="msgClass">{{msg?.message}}</span>
+      <span class="required">* required data</span>
+      <button>Log in</button>
+    </form>
 
+    <span [class]="msgClass">{{msg?.message}}</span>
 
+  </div>
 
 </div>

@@ -13,13 +13,16 @@
       <span>COMPANY</span>
     </a>
 
+    <!-- top -->
+    <a class="bt" routerLink="#" routerLinkActive="active-link" *ngIf="storage.getUser()">
+      <span>TOP JOBs</span>
+    </a>
+
     <!-- search zone -->
-    <!-- <input type="text" placeholder="Search by title" class="search" *ngIf="userService.getUser()" -->
     <input type="text" placeholder="Search by job, company, city... " class="search" *ngIf="storage.getUser()"
       (keyup)="mySearch($event)">
 
     <!-- user zone -->
-    <!-- <div class="dropdown" *ngIf="userService.getUser()"> -->
     <div class="dropdown" *ngIf="storage.getUser()">
       <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
