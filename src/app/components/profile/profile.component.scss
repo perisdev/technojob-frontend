@@ -1,0 +1,193 @@
+ @import "../../../variables.scss";
+
+ .wrap {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   width: 100%;
+   align-items: center;
+   text-align: left;
+
+   .bt-wrap {
+     display: flex;
+     width: 100%;
+     margin-top: 5px;
+     margin-left: 5px;
+
+     .bt-icon {
+       border: 1px solid rgba($color: white, $alpha: 0.7);
+       border-radius: 15%;
+       padding: 2px 5px;
+
+       i {
+         color: white;
+       }
+     }
+   }
+
+   .avatar {
+     height: 100px;
+     align-self: center;
+   }
+
+   h1 {
+     font-size: 2em;
+
+     span {
+       color: $job-color
+     }
+   }
+
+   h2 {
+     font-size: 1.5em;
+   }
+
+   .contact {
+     text-decoration: none;
+     color: $bt-font-color;
+     font-family: $main-fonts;
+     cursor: pointer;
+   }
+
+   .accordion {
+     width: 100%;
+     color: $job-color;
+     overflow-y: auto;
+     overflow-x: hidden;
+
+     button {
+       color: $job-color;
+       font-weight: bold;
+     }
+
+   }
+ }
+
+
+
+
+
+ //   .card-header, .btn-link {
+ //     background: rgba(0, 0, 0, 0.6);
+ //     background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 33%, rgba(0, 0, 5, 0.6) 66%, transparent);
+
+ //     text-decoration: none;
+ //     color: $bt-font-color;
+ //     font-family: $main-fonts;
+ //     cursor: pointer;
+ //   }
+ //   .card {
+ //     background: transparent;
+ //   }
+
+ //   .wrap{
+ //     width: 100%;
+ //     margin-left: 25px;
+ //     // margin-right: 30px;
+ //     font-family: $main-fonts;
+ //     color: $main-font-color;
+ //     text-align: left;
+
+ //     h1 {
+ //       font-size: 3.5em;
+
+ //       span {
+ //         color: $job-color
+ //       }
+ //     }
+
+ //     h2 {
+ //       font-size: 2em;
+ //     }
+ //   }
+ //   .bt-wrap {
+ //     display: flex;
+ //     align-items: flex-start;
+ //     margin-right: 10px;
+ //     height: 82px;
+
+ //     .bt,
+ //     .bt-movie {
+ //       display: flex;
+ //       align-items: center;
+ //       justify-content: center;
+ //       margin-right: 10px;
+
+ //       background: $job-color;
+ //       border-radius: 3px;
+ //       width: 132px;
+ //       height: 35px;
+
+ //       text-decoration: none;
+ //       color: $bt-font-color;
+ //       font-family: $main-fonts;
+ //       cursor: pointer;
+ //     }
+
+ //     .active-link {
+ //       color: $job-color;
+ //       background-color: $bt-font-color;
+ //     }
+
+ //     .search {
+ //       height: 35px;
+ //       width: 350px;
+ //       height: 35px;
+ //       margin-left: 20px;
+ //       padding: 12px 20px 12px 40px;
+
+ //       border: 1px solid rgb(178, 174, 174, 0.5);
+ //       outline: none;
+ //       border-radius: 5px;
+ //       background-color: transparent;
+ //       background-image: url("../../../assets/img/lens.png");
+ //       background-size: 35px;
+ //       background-repeat: no-repeat;
+ //       color: $menu-font-color;
+ //       font-size: 1.1em;
+ //     }
+
+ //     // genre button
+ //     #dropdownMenuButton {
+ //       background: $job-color;
+ //       border: none;
+ //       border-radius: 3px;
+ //       width: 90px;
+ //       height: 35px;
+
+ //       &:focus {
+ //         box-shadow: none; // remove border focus
+ //       }
+ //     }
+
+ //     .dropdown-menu {
+ //       background: transparent;
+ //       min-width: auto;
+
+ //       .dropdown-item {
+ //         background: rgba(0, 0, 0, 0.9);
+ //         color: $menu-font-color;
+ //         cursor: pointer;
+
+ //         &:hover {
+ //           color: $job-color;
+ //         }
+ //       }
+ //     }
+
+ //     .btn {
+ //       height: 35px;
+ //       width: 90px;
+ //       margin: 0;
+ //       padding: 0;
+
+ //       &:focus {
+ //         box-shadow: none; // remove border focus
+ //       }
+
+ //       .user {
+ //         height: 35px;
+ //       }
+ //     }
+ //   }
+ // }

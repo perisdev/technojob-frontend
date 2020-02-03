@@ -1,0 +1,146 @@
+<div class="wrap">
+  <div class="bt-wrap">
+<div class="bt-icon">
+
+  <i class="fas fa-pencil-alt"></i>
+</div>
+
+  </div>
+    
+    <!-- worker zone -->
+    <!-- <div class="dropdown" *ngIf="userService.getUser()"> -->
+      
+        <img src="../../../assets/img/user.png" alt="user image" class="avatar">
+        <h1>Rodrigo</h1>
+        <h2 *ngIf="storage.getUserType()=='worker'">Navarro Huerta</h2>
+        <h2 *ngIf="storage.getUserType()=='company'">CIF-57578345578</h2>
+        <a routerLink="/home"
+        routerLinkActive="active-link">
+        <span class="contact">rodri@badass.cool</span>
+      </a>
+      <h5>Valencia</h5>  
+          <!-- worker accordion -->    
+  <div class="accordion" id="accordionExample" *ngIf="storage.getUserType()=='worker'">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          About me
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <p>Pellentesque volutpat auctor quam. Nam vel feugiat ligula. Donec in ultrices orci. Pellentesque eu mi id felis tincidunt consequat eget et neque. Vivamus non tempor est, vel lacinia nibh. Nam consequat nisl ligula, nec rutrum metus facilisis feugiat.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Education
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <p>Sed et metus varius, laoreet lectus quis, ultricies felis.
+          Curabitur faucibus massa ultricies augue pharetra, molestie tincidunt nulla vulputate.
+          Sed eu arcu in turpis tempus viverra.
+          Ut gravida lacus eu hendrerit lobortis.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Experience
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        <p>Nullam eget eros nec arcu porta tempus.
+          Integer ut elit commodo elit blandit volutpat.
+          Curabitur aliquet metus et condimentum gravida.
+          Praesent vitae neque ullamcorper, suscipit nunc vitae, porta neque.
+          Nam nec urna sagittis, sollicitudin ex ut, varius ante.
+          Sed vel massa non lorem vulputate ultricies at vitae odio.
+          Maecenas tristique sem sit amet leo efficitur accumsan.
+          Ut ultricies turpis vitae massa tristique, et pharetra neque tincidunt.
+          Nam vitae tellus vel magna porttitor commodo eu vitae arcu.
+          Donec vel tellus sed nunc pulvinar convallis.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Skills
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+      <div class="card-body">
+        <ul>
+          <li>Phasellus</li>
+          <li>Vestibulum</li>
+          <li>Sed</li>
+          <li>Nullam</li>
+          <li>Ut</li>
+          <li>Cras</li>
+          <li>Nam</li>
+          <li>Etiam</li>
+          <li>Eleifend</li>
+          <li>Pellentesque</li>
+          <li>Mauris</li>
+          <li>Faucibus</li>
+          <li>Proin</li>
+          <li>Maecena</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- company accordion -->
+<div class="accordion" id="accordionExample" *ngIf="storage.getUserType()=='company'">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Sector
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <p>Facilisis feugiat.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Description
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <p>Sed et metus varius, laoreet lectus quis, ultricies felis.
+          Curabitur faucibus massa ultricies augue pharetra, molestie tincidunt nulla vulputate.
+          Sed eu arcu in turpis tempus viverra.
+          Ut gravida lacus eu hendrerit lobortis.
+          Nullam eget eros nec arcu porta tempus.
+          Integer ut elit commodo elit blandit volutpat.
+          Curabitur aliquet metus et condimentum gravida.</p>
+      </div>
+    </div>
+  </div>
+</div>

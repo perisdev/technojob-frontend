@@ -31,8 +31,10 @@ export class NavComponent implements OnInit {
     if (user)
       this.profileService.myProfile(user.token).subscribe(
         // is logged
-        res => this.router.navigate([`/${localStorage.getItem('userType')}site`]),
-        
+        res => {
+          this.storage.setUserType(localStorage.getItem('userType'));
+          this.router.navigate([`/${localStorage.getItem('userType')}site`]);
+        },        
         // no logged, clean localStorage
         err => {
           localStorage.removeItem('userType');

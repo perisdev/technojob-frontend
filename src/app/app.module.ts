@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WorkersiteComponent } from './components/workersite/workersite.component';
 import { CompanysiteComponent } from './components/companysite/companysite.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CompanysiteComponent } from './components/companysite/companysite.compo
     LoginComponent,
     RegisterComponent,
     WorkersiteComponent,
-    CompanysiteComponent
+    CompanysiteComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
