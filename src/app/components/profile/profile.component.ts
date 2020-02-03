@@ -7,10 +7,12 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  public user:object;
 
   constructor(private storage: StorageService) { }
 
   ngOnInit() {
+    this.user =  JSON.parse(localStorage.getItem('user'));
+    console.log(this.user);
   }
-
 }

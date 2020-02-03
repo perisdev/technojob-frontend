@@ -11,14 +11,14 @@
     <!-- <div class="dropdown" *ngIf="userService.getUser()"> -->
       
         <img src="../../../assets/img/user.png" alt="user image" class="avatar">
-        <h1>Rodrigo</h1>
-        <h2 *ngIf="storage.getUserType()=='worker'">Navarro Huerta</h2>
-        <h2 *ngIf="storage.getUserType()=='company'">CIF-57578345578</h2>
+        <h1>{{user['name']}}</h1>
+        <h2 *ngIf="storage.getUserType()=='worker'">{{user['surname']}}</h2>
+        <h2 *ngIf="storage.getUserType()=='company'">{{user['cif']}}</h2>
         <a routerLink="/home"
         routerLinkActive="active-link">
-        <span class="contact">rodri@badass.cool</span>
+        <span class="contact">{{user['email']}}</span>
       </a>
-      <h5>Valencia</h5>  
+      <h5>{{storage.getCityById(user['city_id'])}}</h5>  
           <!-- worker accordion -->    
   <div class="accordion" id="accordionExample" *ngIf="storage.getUserType()=='worker'">
   <div class="card">
@@ -32,7 +32,7 @@
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        <p>Pellentesque volutpat auctor quam. Nam vel feugiat ligula. Donec in ultrices orci. Pellentesque eu mi id felis tincidunt consequat eget et neque. Vivamus non tempor est, vel lacinia nibh. Nam consequat nisl ligula, nec rutrum metus facilisis feugiat.</p>
+        <p>{{user['aboutme']}}</p>
       </div>
     </div>
   </div>
@@ -46,10 +46,7 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
       <div class="card-body">
-        <p>Sed et metus varius, laoreet lectus quis, ultricies felis.
-          Curabitur faucibus massa ultricies augue pharetra, molestie tincidunt nulla vulputate.
-          Sed eu arcu in turpis tempus viverra.
-          Ut gravida lacus eu hendrerit lobortis.</p>
+        <p>{{user['education']}}</p>
       </div>
     </div>
   </div>
@@ -63,16 +60,7 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body">
-        <p>Nullam eget eros nec arcu porta tempus.
-          Integer ut elit commodo elit blandit volutpat.
-          Curabitur aliquet metus et condimentum gravida.
-          Praesent vitae neque ullamcorper, suscipit nunc vitae, porta neque.
-          Nam nec urna sagittis, sollicitudin ex ut, varius ante.
-          Sed vel massa non lorem vulputate ultricies at vitae odio.
-          Maecenas tristique sem sit amet leo efficitur accumsan.
-          Ut ultricies turpis vitae massa tristique, et pharetra neque tincidunt.
-          Nam vitae tellus vel magna porttitor commodo eu vitae arcu.
-          Donec vel tellus sed nunc pulvinar convallis.</p>
+        <p>{{user['experience']}}</p>
       </div>
     </div>
   </div>
@@ -86,22 +74,7 @@
     </div>
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
       <div class="card-body">
-        <ul>
-          <li>Phasellus</li>
-          <li>Vestibulum</li>
-          <li>Sed</li>
-          <li>Nullam</li>
-          <li>Ut</li>
-          <li>Cras</li>
-          <li>Nam</li>
-          <li>Etiam</li>
-          <li>Eleifend</li>
-          <li>Pellentesque</li>
-          <li>Mauris</li>
-          <li>Faucibus</li>
-          <li>Proin</li>
-          <li>Maecena</li>
-        </ul>
+        <p>{{user['skills']}}</p>
       </div>
     </div>
   </div>
@@ -119,7 +92,7 @@
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        <p>Facilisis feugiat.</p>
+        <p>{{user['sector']}}.</p>
       </div>
     </div>
   </div>
@@ -133,13 +106,7 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
       <div class="card-body">
-        <p>Sed et metus varius, laoreet lectus quis, ultricies felis.
-          Curabitur faucibus massa ultricies augue pharetra, molestie tincidunt nulla vulputate.
-          Sed eu arcu in turpis tempus viverra.
-          Ut gravida lacus eu hendrerit lobortis.
-          Nullam eget eros nec arcu porta tempus.
-          Integer ut elit commodo elit blandit volutpat.
-          Curabitur aliquet metus et condimentum gravida.</p>
+        <p>{{user['description']}}</p>
       </div>
     </div>
   </div>
