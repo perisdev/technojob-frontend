@@ -1,113 +1,122 @@
 <div class="wrap">
+
   <div class="bt-wrap">
-<div class="bt-icon">
-
-  <i class="fas fa-pencil-alt"></i>
-</div>
-
+    <div class="bt-icon">
+      <i class="fas fa-pencil-alt"></i>
+    </div>
+    <div class="bt-logout" (click)="logout()">
+      Log out
+    </div>
   </div>
-    
-    <!-- worker zone -->
-    <!-- <div class="dropdown" *ngIf="userService.getUser()"> -->
-      
-        <img src="../../../assets/img/user.png" alt="user image" class="avatar">
-        <h1>{{user['name']}}</h1>
-        <h2 *ngIf="storage.getUserType()=='worker'">{{user['surname']}}</h2>
-        <h2 *ngIf="storage.getUserType()=='company'">{{user['cif']}}</h2>
-        <a routerLink="/home"
-        routerLinkActive="active-link">
-        <span class="contact">{{user['email']}}</span>
-      </a>
-      <h5>{{storage.getCityById(user['city_id'])}}</h5>  
-          <!-- worker accordion -->    
+
+  <!-- worker zone -->
+  <!-- <div class="dropdown" *ngIf="userService.getUser()"> -->
+
+  <img src="../../../assets/img/user.png" alt="user image" class="avatar">
+  <h1>{{ user?.name }}</h1>
+  <h2 *ngIf="storage.getUserType()=='worker'">{{ user?.surname }}</h2>
+  <h2 *ngIf="storage.getUserType()=='company'">{{ user?.cif }}</h2>
+  <a routerLink="/home" routerLinkActive="active-link">
+    <span class="contact">{{ user?.email }}</span>
+  </a>
+  <h5>{{storage.getCityById(user?.city_id)}}</h5>
+
+  <!-- worker accordion -->
   <div class="accordion" id="accordionExample" *ngIf="storage.getUserType()=='worker'">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          About me
-        </button>
-      </h2>
-    </div>
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            About me
+          </button>
+        </h2>
+      </div>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
-        <p>{{user['aboutme']}}</p>
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>{{user?.aboutme}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="false" aria-controls="collapseTwo">
+            Education
+          </button>
+        </h2>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>{{ user?.education }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+            aria-expanded="false" aria-controls="collapseThree">
+            Experience
+          </button>
+        </h2>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>{{ user?.experience }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingFour">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
+            aria-expanded="false" aria-controls="collapseFour">
+            Skills
+          </button>
+        </h2>
+      </div>
+      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>{{ user?.skills }}</p>
+        </div>
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Education
-        </button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-        <p>{{user['education']}}</p>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Experience
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-        <p>{{user['experience']}}</p>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingFour">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          Skills
-        </button>
-      </h2>
-    </div>
-    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-      <div class="card-body">
-        <p>{{user['skills']}}</p>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- company accordion -->
-<div class="accordion" id="accordionExample" *ngIf="storage.getUserType()=='company'">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Sector
-        </button>
-      </h2>
-    </div>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
-        <p>{{user['sector']}}.</p>
+  <!-- company accordion -->
+  <div class="accordion" id="accordionExample" *ngIf="storage.getUserType()=='company'">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            Sector
+          </button>
+        </h2>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>{{ user?.sector }}.</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="false" aria-controls="collapseTwo">
+            Description
+          </button>
+        </h2>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>{{ user?.description }}</p>
+        </div>
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Description
-        </button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-        <p>{{user['description']}}</p>
-      </div>
-    </div>
-  </div>
-</div>

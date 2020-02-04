@@ -27,10 +27,9 @@ export class StorageService {
   public getUserType(): string {
     return this.userType;
   }
+
   public getUser(): object {
-
     this.user = JSON.parse(localStorage.getItem('user'));
-
     return this.user;
   }
 

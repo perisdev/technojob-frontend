@@ -13,7 +13,6 @@ export class NavComponent implements OnInit {
 
   constructor(private storage: StorageService,
     private router: Router,
-    private accessService: AccessService,
     private profileService: ProfileService) { }
 
   ngOnInit() {
@@ -41,16 +40,5 @@ export class NavComponent implements OnInit {
           localStorage.removeItem('user');
         }
       );
-  }
-
-  logout() {
-    let user = this.storage.getUser();
-
-    this.accessService.logout(user['token'], { "email": `${user['email']}` }).subscribe(
-      res => {
-        this.storage.persistUser(undefined);
-        this.router.navigate(['']);
-      },
-      err => console.log(err));
   }
 }
