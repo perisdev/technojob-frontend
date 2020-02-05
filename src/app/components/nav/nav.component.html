@@ -14,13 +14,13 @@
     </a>
 
     <!-- search zone -->
-    <input [(ngModel)]="searchValue" type="text" placeholder="Search by job, company, requeriment or skill... " class="search"
+    <input [(ngModel)]="searchValue" type="text" placeholder="Search by job, company, requirement or skill... " class="search"
       *ngIf="storage.getUser()">
     <!-- (keyup)="mySearch($event)"> -->
 
-    <!-- genre button -->
+    <!-- select place button -->
     <div class="dropdown" *ngIf="storage.getUser()">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      <button class="bt btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         SELECT PLACE TO SEARCH
       </button>

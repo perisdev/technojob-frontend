@@ -11,10 +11,11 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit, DoCheck {
 
   public user: object;
+  public readOnly: boolean = true;
 
   constructor(private storage: StorageService,
-     private accessService: AccessService,
-     private router: Router) { }
+    private accessService: AccessService,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -32,5 +33,9 @@ export class ProfileComponent implements OnInit, DoCheck {
         this.router.navigate(['']);
       },
       err => console.log(err));
+  }
+
+  getAvatarClass(): string {
+    return (this.storage.getUserType() == 'worker') ? "avatar-worker" : "avatar-company";
   }
 }
