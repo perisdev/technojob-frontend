@@ -13,63 +13,43 @@
     width: 100%;
 
     margin-left: 20px;
+    border-radius: 10px 4px 0 10px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background-color: rgba($color: $job-color, $alpha: 0.7);
+    // background-color: rgba($color: black, $alpha: 0.7);
+    //background-color: rgba($color: white, $alpha: 0.7);
     
-    border-radius: 10px 0 0 10px;
-    border-top: $area-border;
-    border-bottom: $area-border;
-    border-left: $area-border;
-    
-    color: white;
-    // background: white;
-    // background-color: rgba($color: white, $alpha: 0.9);
-    background: rgba(0, 0, 0, 0.9);
+    .accordion {
+      
+      .card {
+        border: none;
+        background: transparent;
+        // background-color: rgba($color: black, $alpha: 0.7);
+        // background-color: rgba($color: $job-color, $alpha: 0.7);
+        // background-color: rgba($color: $job-color, $alpha: 1);
+        
+        .btCollapseWrap {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 50px;
+          // border-bottom: 1px solid rgba($color: $job-color, $alpha: 0.8);
+          border-bottom: 1px solid rgba($color: white, $alpha: 0.8);
+          
+          .btCollapse {
+            cursor: pointer;
+            // color: #80c3eb;
+            color: white;
+            background: transparent;
+          }
+        }
+      }
+      .card-body {
+        background: white;
+      }
+    }
   }
 }
-// .main-wrapper {
-//   color: white;
-//   background-color: lightgreen;
-//   // background: white;
-//   // background: rgba($color: $job-color, $alpha: 1);
-//   // border-top: 1px solid $job-color;
-//   // border: 1px solid $job-color;
-//   height: 100%;
-//   width: 100%;
-
-//   // display: grid;
-//   // grid-template-columns: 325px 1fr;
-
-//   // .profile {
-//   //   // border: 1px solid $job-color;
-
-//   //   .profile-component {
-//   //     // margin-left: 0px;
-//   //     width: 100%;
-//   //     height: 98%;
-//   //     border-radius: 0 10px 10px 0;
-//   //     border-top: $area-border;
-//   //     border-bottom: $area-border;
-//   //     border-right: $area-border;
-
-//   //     background-color: rgba($color: $job-color, $alpha: 0.9);
-//   //     // background: rgba(0, 0, 0, 0.9);
-//   //   }
-//   // }
-
-//   // .detail {
-//   //   // border: 1px solid $job-color;
-
-//   //   .detail-component {
-//   //     margin-left: 20px;
-//   //     width: calc(100% - 20px);
-//   //     height: 98%;
-//   //     border-radius: 10px 0 0 10px;
-//   //     border-top: $area-border;
-//   //     border-bottom: $area-border;
-//   //     border-left: $area-border;
-
-//   //     // background: white;
-//   //     background-color: rgba($color: white, $alpha: 0.9);
-//   //     // background: rgba(0, 0, 0, 0.9);
-//   //   }
-//   // }
-// }

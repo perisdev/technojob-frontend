@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
+import { Component, OnInit, OnChanges, DoCheck, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { StorageService } from '../../services/storage.service';
 import { AccessService } from 'src/app/services/access.service';
@@ -10,6 +10,8 @@ import { ProfileService } from 'src/app/services/profile.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+
+  public searchValue="";
 
   constructor(private storage: StorageService,
     private router: Router,
@@ -33,12 +35,22 @@ export class NavComponent implements OnInit {
         res => {
           this.storage.setUserType(localStorage.getItem('userType'));
           this.router.navigate([`/${localStorage.getItem('userType')}site`]);
-        },        
+        },
         // no logged, clean localStorage
         err => {
           localStorage.removeItem('userType');
           localStorage.removeItem('user');
         }
       );
+  }
+
+  // search by title
+  mySearch(e) {
+
+    console.log('click:', e.target.text, this.searchValue);
+    // if (search.key === 'Enter')
+    //   this.router.navigate(['/movies/title/', {
+    //     title: search.target.value
+    //   }]);
   }
 }

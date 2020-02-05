@@ -11,6 +11,7 @@ export class StorageService {
   private user: object;
 
   private cities: Array<string> = [];
+  public citiesObj: Object;
 
   constructor() { }
 
@@ -48,9 +49,15 @@ export class StorageService {
   // CITIEs
   public setCities(cities: object): void {
 
+    this.citiesObj = cities;
+
     Object.values(cities).map(item => {
       this.cities.push(item['name']);
     });
+  }
+
+  public getCities(): Array<string> {
+    return this.cities;
   }
 
   public getCityByName(value: string): number {

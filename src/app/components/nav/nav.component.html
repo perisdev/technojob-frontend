@@ -1,5 +1,5 @@
 <nav class="nav">
-  <a href="/">
+  <a id="logo-wrap" href="/">
     <img src="../../../assets/img/technojob.png" alt="logo technojob" class="logo">
   </a>
 
@@ -13,14 +13,26 @@
       <span>COMPANY</span>
     </a>
 
-    <!-- top -->
-    <a class="bt" routerLink="#" routerLinkActive="active-link" *ngIf="storage.getUser()">
-      <span>TOP JOBs</span>
-    </a>
-
     <!-- search zone -->
-    <input type="text" placeholder="Search by job, company, city... " class="search" *ngIf="storage.getUser()"
-      (keyup)="mySearch($event)">
+    <input [(ngModel)]="searchValue" type="text" placeholder="Search by job, company, requeriment or skill... " class="search"
+      *ngIf="storage.getUser()">
+    <!-- (keyup)="mySearch($event)"> -->
 
+    <!-- genre button -->
+    <div class="dropdown" *ngIf="storage.getUser()">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        SELECT PLACE TO SEARCH
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" (click)="mySearch($event)">*</a>
+        <a *ngFor="let item of storage.citiesObj" class="dropdown-item" (click)="mySearch($event)">{{ item.name }}</a>
+      </div>
+    </div>
+
+    <!-- SEARCH -->
+    <!-- <a class="bt" routerLink="#" routerLinkActive="active-link" *ngIf="storage.getUser()">
+      <span>SEARCH</span>
+    </a> -->
   </div>
 </nav>
