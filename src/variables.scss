@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap");
 
 // $main-fonts: 'Poppins', sans-serif;
 $main-fonts: Arial, sans-serif;
@@ -18,10 +18,16 @@ $bt-color: #167db7;
 // $border-color: rgb(178, 174, 174, 0.5);
 $border-color: rgba(#fff, 0.7);
 $input-color: #313131;
+$edit-color: rgba(#7cd583, 0.3);
+// $edit-color: rgba(#000, 0.2);
 
 // msg colors
 $success-color: #65da78;
 $warning-color: #e4bd6a;
 
 // area border
-$area-border: 1px solid rgba($color: $job-color, $alpha: 0.9);
+$area-border: 1px solid
+  rgba(
+    $color: $job-color,
+    $alpha: 0.9
+  );

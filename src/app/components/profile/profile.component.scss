@@ -8,6 +8,8 @@
   align-items: center;
   text-align: left;
 
+  // border: 2px solid rgb(53, 182, 103);
+
   .bt-wrap {
     display: flex;
     width: 100%;
@@ -25,13 +27,19 @@
     }
 
     .bt-icon {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       height: 30px;
       width: 30px;
 
       i {
         color: white;
       }
+    }
+
+    .bt-logout {
+      margin-left: 55%;
     }
   }
 
@@ -47,20 +55,29 @@
     border-radius: 70px;
   }
 
-  .input-name, .input-varios, .input-email, .input-city, .input-section {
+  .input-name,
+  .input-varios,
+  .input-email,
+  .input-city,
+  .input-section {
     width: 300px;
     color: #fff;
     background-color: transparent;
     border: none;
     text-align: center;
+
   }
   
+  .edit {
+    background: $edit-color;
+  }
+
   .input-name {
     margin-top: 5px;
     font-size: 2em;
   }
 
-  .input-varios{
+  .input-varios {
     font-size: 1.3em;
   }
 
@@ -86,6 +103,54 @@
     text-align: left;
     padding: 10px;
   }
+
+  // password change zone
+  .pass-wrapper {
+    width: 80%;
+    margin-top: 10px;
+
+    .pass-form {
+
+      background: rgba($color: #000000, $alpha: 0.3);
+      border-radius: 10px;
+      margin-top: 15px;
+      padding: 10px;
+      padding-bottom: 15px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      // border-bottom: 1px solid white;
+    }
+
+    input {
+      margin-top: 5px;
+      height: 30px;
+      border: 1px solid rgba($color: $job-color, $alpha: 1);
+      text-align: center;
+    }
+
+    button {
+      width: 50%;
+      margin-top: 20px;
+      padding: 2px 5px;
+      
+      border: 1px solid rgba($color: white, $alpha: 0.7);
+      border-radius: 4px;
+
+      background: transparent;
+      color: white;
+    }
+
+    span {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 5px;
+    }
+  }
+  // ..
 
   .accordion {
     margin-top: 20px;

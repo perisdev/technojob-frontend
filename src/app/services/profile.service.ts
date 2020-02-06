@@ -18,4 +18,20 @@ export class ProfileService {
       }
     })
   }
+
+  public update(token: string, body: object): Observable<object> {
+    return this.httpClient.patch(this.storage.getUrl() + 'myprofile/update', body, {
+      headers: {
+        Authorization: token
+      }
+    })
+  }
+
+  public pass(token: string, body: object): Observable<object> {
+    return this.httpClient.patch(this.storage.getUrl() + 'myprofile/pass', body, {
+      headers: {
+        Authorization: token
+      }
+    })
+  }
 }

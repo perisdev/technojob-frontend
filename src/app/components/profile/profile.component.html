@@ -3,7 +3,11 @@
   <div class="bt-wrap">
     <div class="bt-icon" (click)="readOnly = !readOnly">
       <i class="fas fa-pencil-alt" *ngIf="readOnly"></i>
-      <i class="far fa-save" *ngIf="!readOnly" (click)="updateUserData()"></i>
+      <i class="far fa-save" style="font-size: 1.3em;" *ngIf="!readOnly" (click)="updateUserData()"></i>
+    </div>
+    <div class="bt-icon" (click)="editPass = !editPass">
+      <i class="fas fa-key" *ngIf="!editPass"></i>
+      <i class="fas fa-times" style="font-size: 1.3em;" *ngIf="editPass"></i>
     </div>
     <div class="bt-logout" (click)="logout()">
       Log out
@@ -13,25 +17,31 @@
   <!-- worker zone -->
   <img [src]=user?.url_img alt="user image" [ngClass]=getAvatarClass()>
 
-  <input class="input-name" name="name" type="text" [(ngModel)]="user.name" [readonly]="readOnly" />
-  <input class="input-varios" name="surname" type="text" [(ngModel)]="user.surname" [readonly]="readOnly"
-    *ngIf="storage.getUserType()=='worker'" />
-  <input class="input-varios" name="cif" type="text" [(ngModel)]="user.cif" [readonly]="readOnly"
-    *ngIf="storage.getUserType()=='company'" />
-  <input class="input-email" name="email" type="text" [(ngModel)]="user.email" [readonly]="readOnly" />
-  <input class="input-city" name="city" type="text" [(ngModel)]="user.city_name" [readonly]="readOnly" />
-
-  <!-- <p class="user-name">{{ user?.name }}</p> -->
-  <!-- <p class="user-varios" *ngIf="storage.getUserType()=='worker'">{{ user?.surname }}</p> -->
-  <!-- <p class="user-varios" *ngIf="storage.getUserType()=='company'">{{ user?.cif }}</p> -->
-  <!-- <p class="user-email">{{ user?.email }}</p> -->
-  <!-- <p class="user-city">{{"( " + storage.getCityById(user?.city_id) + " )"}}</p> -->
-
+  <input [ngClass]="{'input-name': true, 'edit': !readOnly}" name="name" type="text" [(ngModel)]="user.name"
+    [readonly]="readOnly" />
+  <input [ngClass]="{'input-varios': true, 'edit': !readOnly}" name="surname" type="text" [(ngModel)]="user.surname"
+    [readonly]="readOnly" *ngIf="storage.getUserType()=='worker'" />
+  <input [ngClass]="{'input-varios': true, 'edit': !readOnly}" name="cif" type="text" [(ngModel)]="user.cif"
+    [readonly]="readOnly" *ngIf="storage.getUserType()=='company'" />
+  <input [ngClass]="{'input-email': true, 'edit': !readOnly}" name="email" type="text" [(ngModel)]="user.email"
+    [readonly]="readOnly" />
+  <input [ngClass]="{'input-city': true, 'edit': !readOnly}" name="city" type="text" [(ngModel)]="user.city_name" [readonly]="readOnly" />
 
   <!-- <a [href]= "'mailto:' + user?.email"  class="user-email">{{ user?.email }}</a> -->
 
+  <!-- password change -->
+  <div class="pass-wrapper" *ngIf="editPass">
+    <form class="pass-form" (submit)="changePass(form)" #form="ngForm">
+      <p>- CHANGE PASS -</p>
+      <input type="password" placeholder="*current" ngModel #currentPass="ngModel" name="password" required>
+      <input type="password" placeholder="*new" ngModel #pass="ngModel" name="newPassword" required>
+      <button>change</button>
+    </form>
+    <span [class]="msgClass">{{msg?.message}}</span>
+  </div>
+
   <!-- worker accordion -->
-  <div class="accordion" id="accordionExample" *ngIf="storage.getUserType()=='worker'">
+  <div class="accordion" id="accordionExample" *ngIf="storage.getUserType()=='worker' && !editPass">
     <div class="card">
       <div class="card-header" id="headingOne">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
@@ -42,7 +52,7 @@
 
       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
         <div class="card-body">
-          <textarea class="input-section" [(ngModel)]='user.about' rows="2" cols="120" [readonly]="readOnly"></textarea>
+          <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.about' rows="2" cols="120" [readonly]="readOnly"></textarea>
         </div>
       </div>
     </div>
@@ -55,7 +65,7 @@
       </div>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
         <div class="card-body">
-          <textarea class="input-section" [(ngModel)]='user.education' rows="3" cols="120"
+          <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.education' rows="3" cols="120"
             [readonly]="readOnly"></textarea>
         </div>
       </div>
@@ -69,7 +79,7 @@
       </div>
       <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
         <div class="card-body">
-          <textarea class="input-section" [(ngModel)]='user.experience' rows="3" cols="120"
+          <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.experience' rows="3" cols="120"
             [readonly]="readOnly"></textarea>
         </div>
       </div>
@@ -83,14 +93,15 @@
       </div>
       <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
         <div class="card-body">
-          <p>{{ user?.skills }}</p>
+          <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.skills' rows="3" cols="120"
+            [readonly]="readOnly"></textarea>
         </div>
       </div>
     </div>
   </div>
 
   <!-- company accordion -->
-  <div class="accordion" id="accordionExample" *ngIf="storage.getUserType()=='company'">
+  <div class="accordion" id="accordionExample" *ngIf="storage.getUserType()=='company'  && !editPass">
     <div class="card">
       <div class="card-header" id="headingOne">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
@@ -98,10 +109,10 @@
           Sector
         </button>
       </div>
-
       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
         <div class="card-body">
-          <p>{{ user?.sector }}.</p>
+          <textarea class="input-section" [(ngModel)]='user.sector' rows="2" cols="120"
+            [readonly]="readOnly"></textarea>
         </div>
       </div>
     </div>
@@ -114,7 +125,8 @@
       </div>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
         <div class="card-body">
-          <p>{{ user?.description }}</p>
+          <textarea class="input-section" [(ngModel)]='user.description' rows="5" cols="120"
+            [readonly]="readOnly"></textarea>
         </div>
       </div>
     </div>
