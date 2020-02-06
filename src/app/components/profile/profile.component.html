@@ -1,9 +1,9 @@
-<div class="wrap">
+<div class="wrap" *ngIf="storage.getUser()">
 
   <div class="bt-wrap">
     <div class="bt-icon" (click)="readOnly = !readOnly">
       <i class="fas fa-pencil-alt" *ngIf="readOnly"></i>
-      <i class="far fa-save" *ngIf="!readOnly"></i>
+      <i class="far fa-save" *ngIf="!readOnly" (click)="updateUserData()"></i>
     </div>
     <div class="bt-logout" (click)="logout()">
       Log out
@@ -11,67 +11,75 @@
   </div>
 
   <!-- worker zone -->
-  <img [src]=user?.url_img alt="user image" [ngClass]= getAvatarClass()>
+  <img [src]=user?.url_img alt="user image" [ngClass]=getAvatarClass()>
 
-  <!-- <input name="name" type="text" [(ngModel)]="user.name" [readonly]="readOnly"/> -->
+  <input class="input-name" name="name" type="text" [(ngModel)]="user.name" [readonly]="readOnly" />
+  <input class="input-varios" name="surname" type="text" [(ngModel)]="user.surname" [readonly]="readOnly"
+    *ngIf="storage.getUserType()=='worker'" />
+  <input class="input-varios" name="cif" type="text" [(ngModel)]="user.cif" [readonly]="readOnly"
+    *ngIf="storage.getUserType()=='company'" />
+  <input class="input-email" name="email" type="text" [(ngModel)]="user.email" [readonly]="readOnly" />
+  <input class="input-city" name="city" type="text" [(ngModel)]="user.city_name" [readonly]="readOnly" />
 
-  <p class="user-name">{{ user?.name }}</p>
-  <p class="user-varios" *ngIf="storage.getUserType()=='worker'">{{ user?.surname }}</p>
-  <p class="user-varios" *ngIf="storage.getUserType()=='company'">{{ user?.cif }}</p>
-  <p class="user-email">{{ user?.email }}</p>
-  <p class="user-city">{{"( " + storage.getCityById(user?.city_id) + " )"}}</p>
+  <!-- <p class="user-name">{{ user?.name }}</p> -->
+  <!-- <p class="user-varios" *ngIf="storage.getUserType()=='worker'">{{ user?.surname }}</p> -->
+  <!-- <p class="user-varios" *ngIf="storage.getUserType()=='company'">{{ user?.cif }}</p> -->
+  <!-- <p class="user-email">{{ user?.email }}</p> -->
+  <!-- <p class="user-city">{{"( " + storage.getCityById(user?.city_id) + " )"}}</p> -->
+
 
   <!-- <a [href]= "'mailto:' + user?.email"  class="user-email">{{ user?.email }}</a> -->
-  
 
   <!-- worker accordion -->
   <div class="accordion" id="accordionExample" *ngIf="storage.getUserType()=='worker'">
     <div class="card">
       <div class="card-header" id="headingOne">
-          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-            aria-expanded="true" aria-controls="collapseOne">
-            About me
-          </button>
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+          aria-expanded="true" aria-controls="collapseOne">
+          About me
+        </button>
       </div>
 
       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
         <div class="card-body">
-          <p>{{user?.aboutme}}</p>
+          <textarea class="input-section" [(ngModel)]='user.about' rows="2" cols="120" [readonly]="readOnly"></textarea>
         </div>
       </div>
     </div>
     <div class="card">
       <div class="card-header" id="headingTwo">
-          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="false" aria-controls="collapseTwo">
-            Education
-          </button>
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+          aria-expanded="false" aria-controls="collapseTwo">
+          Education
+        </button>
       </div>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
         <div class="card-body">
-          <p>{{ user?.education }}</p>
+          <textarea class="input-section" [(ngModel)]='user.education' rows="3" cols="120"
+            [readonly]="readOnly"></textarea>
         </div>
       </div>
     </div>
     <div class="card">
       <div class="card-header" id="headingThree">
-          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
-            aria-expanded="false" aria-controls="collapseThree">
-            Experience
-          </button>
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+          aria-expanded="false" aria-controls="collapseThree">
+          Experience
+        </button>
       </div>
       <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
         <div class="card-body">
-          <p>{{ user?.experience }}</p>
+          <textarea class="input-section" [(ngModel)]='user.experience' rows="3" cols="120"
+            [readonly]="readOnly"></textarea>
         </div>
       </div>
     </div>
     <div class="card">
       <div class="card-header" id="headingFour">
-          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
-            aria-expanded="false" aria-controls="collapseFour">
-            Skills
-          </button>
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
+          aria-expanded="false" aria-controls="collapseFour">
+          Skills
+        </button>
       </div>
       <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
         <div class="card-body">
@@ -85,10 +93,10 @@
   <div class="accordion" id="accordionExample" *ngIf="storage.getUserType()=='company'">
     <div class="card">
       <div class="card-header" id="headingOne">
-          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-            aria-expanded="true" aria-controls="collapseOne">
-            Sector
-          </button>
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+          aria-expanded="true" aria-controls="collapseOne">
+          Sector
+        </button>
       </div>
 
       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -99,10 +107,10 @@
     </div>
     <div class="card">
       <div class="card-header" id="headingTwo">
-          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="false" aria-controls="collapseTwo">
-            Description
-          </button>
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+          aria-expanded="false" aria-controls="collapseTwo">
+          Description
+        </button>
       </div>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
         <div class="card-body">

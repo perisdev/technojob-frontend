@@ -45,10 +45,13 @@
             color: white;
             background: transparent;
           }
+
+          .card-body {
+            padding: 0;
+            height: auto;
+            background: white;
+          }
         }
-      }
-      .card-body {
-        background: white;
       }
     }
   }

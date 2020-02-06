@@ -40,6 +40,7 @@ export class NavComponent implements OnInit {
         err => {
           localStorage.removeItem('userType');
           localStorage.removeItem('user');
+          this.storage.cleanUser();
         }
       );
   }

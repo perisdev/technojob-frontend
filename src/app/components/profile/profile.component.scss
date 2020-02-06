@@ -14,7 +14,8 @@
     margin-top: 5px;
     margin-left: 5px;
 
-    .bt-icon, .bt-logout {
+    .bt-icon,
+    .bt-logout {
       cursor: pointer;
       border: 1px solid rgba($color: white, $alpha: 0.7);
       border-radius: 4px;
@@ -27,34 +28,50 @@
       text-align: center;
       height: 30px;
       width: 30px;
-      
+
       i {
         color: white;
       }
     }
   }
 
-  .avatar-company, .avatar-worker {
+  .avatar-company,
+  .avatar-worker {
     height: 140px;
     max-width: 300px;
     align-self: center;
     margin: 10px 0 0 0;
   }
-  
+
   .avatar-worker {
     border-radius: 70px;
   }
 
-  .user-name, .user-varios, .user-city {
-    margin: 0px;
+  .input-name, .input-varios, .input-email, .input-city, .input-section {
+    width: 300px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    text-align: center;
   }
-
-  .user-name {
+  
+  .input-name {
+    margin-top: 5px;
     font-size: 2em;
   }
 
-  .user-varios {
+  .input-varios{
     font-size: 1.3em;
+  }
+
+  .input-email {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: $email-color;
+  }
+
+  .input-city {
+    font-size: 0.9em;
   }
 
   .user-email {
@@ -62,16 +79,12 @@
     font-size: 1.1em;
     color: $email-color;
   }
-  
-  .user-city {
-    font-size: 0.9em;
-  }
 
-  .contact {
-    text-decoration: none;
-    color: $bt-font-color;
-    font-family: $main-fonts;
-    cursor: pointer;
+  .input-section {
+    width: 100%;
+    color: #000;
+    text-align: left;
+    padding: 10px;
   }
 
   .accordion {
@@ -84,6 +97,10 @@
     .card-header {
       height: 100%;
       background: rgb(253, 251, 251);
+      padding: 0;
+    }
+
+    .card-body {
       padding: 0;
     }
 

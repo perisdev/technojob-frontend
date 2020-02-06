@@ -8,7 +8,7 @@ export class StorageService {
   private url: string = 'http://localhost:8000/api/';
 
   private userType: string = 'both';
-  private user: object;
+  public user: object;
 
   private cities: Array<string> = [];
   public citiesObj: Object;
@@ -30,19 +30,26 @@ export class StorageService {
   }
 
   public getUser(): object {
-    this.user = JSON.parse(localStorage.getItem('user'));
-    return this.user;
+
+      this.user = JSON.parse(localStorage.getItem('user'));
+      return this.user;
+  }
+
+  public cleanUser():void {
+    this.user = null;
   }
 
   public persistUser(user: object): void {
-    this.user = user;
-
+    
     if (user) {
+      this.user = user;
+      this.user['city_name'] = this.getCityById(user['city_id']);
       localStorage.setItem('user', JSON.stringify(user));
       localStorage.setItem('userType', this.userType);
     } else {
       localStorage.removeItem('user');
       localStorage.removeItem('userType');
+      this.user = null;
     }
   }
 
