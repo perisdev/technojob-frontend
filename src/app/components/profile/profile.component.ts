@@ -11,16 +11,19 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit, DoCheck {
 
   public user: object;
+  public readOnly: boolean = true;
 
   constructor(private storage: StorageService,
-     private accessService: AccessService,
-     private router: Router) { }
+    private accessService: AccessService,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
   ngDoCheck() {
-    this.user = JSON.parse(localStorage.getItem('user'));
+
+    if (!this.user)
+      this.user = this.storage.getUser();
   }
 
   logout() {
@@ -29,8 +32,38 @@ export class ProfileComponent implements OnInit, DoCheck {
     this.accessService.logout(user['token'], { "email": `${user['email']}` }).subscribe(
       res => {
         this.storage.persistUser(undefined);
+        this.user = null;
         this.router.navigate(['']);
       },
       err => console.log(err));
+
   }
+
+  getAvatarClass(): string {
+    return (this.storage.getUserType() == 'worker') ? "avatar-worker" : "avatar-company";
+  }
+
+  updateUserData(): void {
+
+    let city_id: number = this.storage.getCityByName(this.user['city_name']);
+    let updateUser: object;
+
+    if (city_id < 1) {
+      this.user['city_name'] = this.storage.getCityById(this.user['city_id']);
+    } else {
+      this.user['city_id'] = city_id;
+      this.user['city_name'] = this.storage.getCityById(city_id);
+    }
+
+    updateUser = Object.assign({}, this.user);
+    // updateUser = JSON.parse(JSON.stringify(this.user));
+    delete updateUser['city_name'];
+
+    console.log("USER", this.user);
+    console.log("UPDATE", updateUser);
+
+    this.storage.persistUser(updateUser);
+
+  }
+
 }
