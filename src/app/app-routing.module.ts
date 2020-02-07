@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { WorkersiteComponent } from './components/workersite/workersite.component';
-import { CompanysiteComponent } from './components/companysite/companysite.component';
+import { WorkersiteComponent } from './components/worker/workersite/workersite.component';
+import { CompanysiteComponent } from './components/company/companysite/companysite.component';
 
 
 const routes: Routes = [
