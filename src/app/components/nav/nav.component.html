@@ -13,6 +13,14 @@
       <span>COMPANY</span>
     </a>
 
+    <!-- worker buttons -->
+    <a class="bt subscriptions" routerLink="/workersite/subscriptions" routerLinkActive="active-link" *ngIf="storage.getUser() && storage.getUserType() == 'worker'">
+      <span>SUBSCRIPTIONS</span>
+    </a>
+    <a class="bt" routerLink="/workersite/top" routerLinkActive="active-link" *ngIf="storage.getUser() && storage.getUserType() == 'worker'">
+      <span>TOP</span>
+    </a>
+
     <!-- search zone -->
     <input [(ngModel)]="searchValue" type="text" placeholder="Search by job, company, requirement or skill... " class="search"
       *ngIf="storage.getUser()">

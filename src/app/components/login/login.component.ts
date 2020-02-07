@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private router: Router,
     private storage: StorageService,
-    private accessService: AccessService ) { }
+    private accessService: AccessService) { }
 
   // to set focus in username.
   ngAfterViewInit() {
@@ -47,7 +47,13 @@ export class LoginComponent implements OnInit {
           this.msg = res;
           this.msgClass = 'msgOk';
           this.storage.persistUser(res["user"]);
-          setTimeout(() => this.router.navigate([`/${this.storage.getUserType()}site`]), 500);
+          // setTimeout(() => this.router.navigate([`/${this.storage.getUserType()}site/subscriptions`]), 500);
+          setTimeout(() => {
+            if (this.storage.getUserType() == 'worker')
+              this.router.navigate(['/workersite/subscriptions']);
+            else
+              this.router.navigate(['/companysite']);
+          }, 500);
         },
         err => {
           console.log("err:", err.error);

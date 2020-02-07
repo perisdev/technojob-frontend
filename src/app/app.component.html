@@ -1,19 +1,13 @@
-<div class="main-wrap">
-  <!-- <div [ngClass]="{'back': true, 'back-dark': router.url.includes('movie')}"> -->
-  <!-- <div [ngClass]="{'back-dark': router.url.includes('site')}"> -->
+<div class="main-wrap show-profile">
 
   <app-nav></app-nav>
 
-  <!-- <div [ngClass]="{'site-wrap':true, 'show-profile': true}"> -->
-  <div [ngClass]="{'site-wrap':true, 'show-profile': storage.getUser()}">
-
-    <div class="profile-wrap">
-      <app-profile></app-profile>
-    </div>
-
-    <div class="router-wrap">
-      <router-outlet></router-outlet>
-    </div>
-
+  <div class="profile-wrap">
+    <app-profile></app-profile>
   </div>
+
+  <div class="router-wrap">
+    <router-outlet></router-outlet>
+  </div>
+  
 </div>

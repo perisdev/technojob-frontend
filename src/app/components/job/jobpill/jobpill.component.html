@@ -1,1 +1,12 @@
-<p>jobpill works!</p>
+<div class="wrap" *ngIf="index >= 0">
+
+  <img class="job-img"
+    [src]="storage.subscriptions[index].company.url_img ? storage.subscriptions[index].company.url_img : '../../../assets/img/company_default.png'"
+    alt="img">
+  <p class="job-name">{{ storage.subscriptions[index].job_name }}</p>
+  <p class="job-company">{{ storage.subscriptions[index].company.name }}</p>
+  <p class="description">{{ storage.subscriptions[index].description }}</p>
+  <p class="place-date">{{ storage.getCityById(storage.subscriptions[index].company.city_id) }} | {{ storage.subscriptions[index].created_at }}</p>
+  <p class="state">Pending</p>
+
+</div>

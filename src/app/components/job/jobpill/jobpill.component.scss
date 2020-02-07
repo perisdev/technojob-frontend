@@ -1,0 +1,67 @@
+.wrap {
+  height: 80px;
+  background: white;
+  margin-bottom: 5px;
+
+  font-family: 'Open Sans', sans-serif;
+  // font-weight: 300;
+
+  display: grid;
+  grid-template-columns: 140px 250px 1fr 100px;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  grid-template-areas:
+  "img jobname description state"
+  "img company description state"
+  "img  place  description state";
+
+  p {
+    margin: 0px;
+  }
+
+  .job-img {
+    grid-area: img;
+    width: 120px;
+    height: 60px;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .job-name {
+    grid-area: jobname;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .job-company {
+    grid-area: company;
+    font-size: 14px;
+    color: #167DB7;
+  }
+
+  .description {
+    grid-area: description;
+    overflow: hidden;
+    height: 70px;
+    width: 95%;
+    font-size: 15px;
+    font-weight: 300;
+    padding-right: 10px;
+    align-self: center;
+    justify-self: center;
+    border-right: 1px solid gray;
+  }
+
+  .place-date {
+    grid-area: place;
+    font-size: 13px;
+    align-self: center;
+  }
+
+  .state {
+    grid-area: state;
+    align-self: center;
+    text-align: center;
+    justify-self: center;
+  }
+}

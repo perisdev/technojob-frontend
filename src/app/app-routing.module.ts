@@ -14,7 +14,9 @@ const routes: Routes = [
   // access
   { path: "login/:userType", component: LoginComponent},
   { path: "register/:userType", component: RegisterComponent},
-  { path: "workersite", component: WorkersiteComponent},
+
+  // sites
+  { path: "workersite/:listType", component: WorkersiteComponent},
   { path: "companysite", component: CompanysiteComponent}
 ];
 

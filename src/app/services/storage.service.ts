@@ -13,6 +13,8 @@ export class StorageService {
   private cities: Array<string> = [];
   public citiesObj: Object;
 
+  public subscriptions: Array<object> = [];
+
   constructor() { }
 
   // URLs
