@@ -1,19 +1,27 @@
 .wrap {
+  text-decoration: none;
   height: 80px;
   background: white;
-  margin-bottom: 5px;
+  color: #000;
+  margin-top: 10px;
+  cursor: pointer;
 
-  font-family: 'Open Sans', sans-serif;
-  // font-weight: 300;
+  &:hover {
+    background: rgba($color: #000000, $alpha: 0.1);
+  }
+
+  border: 1px solid rgba($color: #000000, $alpha: 0.5);
+  border-radius: 4px;
+  font-family: "Open Sans", sans-serif;
 
   display: grid;
   grid-template-columns: 140px 250px 1fr 100px;
   grid-template-rows: 1fr 1fr 1fr;
 
   grid-template-areas:
-  "img jobname description state"
-  "img company description state"
-  "img  place  description state";
+    "img jobname description state"
+    "img company description state"
+    "img  place  description state";
 
   p {
     margin: 0px;
@@ -36,7 +44,7 @@
   .job-company {
     grid-area: company;
     font-size: 14px;
-    color: #167DB7;
+    color: #167db7;
   }
 
   .description {
@@ -63,5 +71,22 @@
     align-self: center;
     text-align: center;
     justify-self: center;
+
+    i {
+      font-size: 14px;
+    }
   }
 }
+
+// collapse zone
+.title {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.description, .about-company, .requirements, .conditions {
+  font-size: 15px;
+  font-weight: 300;
+}
+

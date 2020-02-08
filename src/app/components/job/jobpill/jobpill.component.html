@@ -1,4 +1,4 @@
-<div class="wrap" *ngIf="index >= 0">
+<a class="wrap" [ngStyle]="{'border-color': storage.status[storage.subscriptions[index].pivot.status].bkColor }" data-toggle="collapse" [href]="'#collapse' + index" aria-expanded="false" aria-controls="collapseExample" *ngIf="index >= 0">
 
   <img class="job-img"
     [src]="storage.subscriptions[index].company.url_img ? storage.subscriptions[index].company.url_img : '../../../assets/img/company_default.png'"
@@ -7,6 +7,24 @@
   <p class="job-company">{{ storage.subscriptions[index].company.name }}</p>
   <p class="description">{{ storage.subscriptions[index].description }}</p>
   <p class="place-date">{{ storage.getCityById(storage.subscriptions[index].company.city_id) }} | {{ storage.subscriptions[index].created_at }}</p>
-  <p class="state">Pending</p>
+  <p ngClass="state" [ngStyle]="{'color': storage.status[storage.subscriptions[index].pivot.status].msgColor }">{{ storage.status[storage.subscriptions[index].pivot.status].msg }} </p>
 
+</a>
+
+<div class="collapse" [id]="'collapse' + index">
+  <div class="card card-body">
+    
+    <p class="sector">{{ storage.subscriptions[index].company.sector }}</p>
+    <p class="about-company">{{ storage.subscriptions[index].company.description }}</p>
+    
+    <p class="title">Description</p>
+    <p class="description">{{ storage.subscriptions[index].description }}</p>
+    
+    <p class="title">Requirements</p>
+    <p class="requirements">{{ storage.subscriptions[index].requirements }}</p>
+    
+    <p class="title">Salary Range</p>
+    <p class="conditions">{{ storage.subscriptions[index].salary }}</p>
+
+  </div>
 </div>

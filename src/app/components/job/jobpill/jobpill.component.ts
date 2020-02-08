@@ -14,10 +14,15 @@ export class JobpillComponent implements OnInit {
   @Input()
   top: boolean = false;
 
-  constructor(private storage:StorageService) { }
+  constructor(private storage: StorageService) { }
 
   ngOnInit() {
-    
+
+  }
+
+  // get subscription status.
+  public getSubsStatus(index: number) {
+    return this.storage.subscriptions[index]["pivot"].status;
   }
 
 }

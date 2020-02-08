@@ -9,6 +9,11 @@ export class StorageService {
 
   private userType: string = 'both';
   public user: object;
+  public status: Array<object> = [
+    { msg: 'rejected', msgColor: '#ff0000', bkColor: '#ff000080' },
+    { msg: 'pending', msgColor: '#167db7', bkColor: '#167cb780' },
+    { msg: 'selected', msgColor: '#2fc42a', bkColor: '#2fc42a80'}
+  ];
 
   private cities: Array<string> = [];
   public citiesObj: Object;
