@@ -1,0 +1,124 @@
+@import "../../../../variables.scss";
+.wrap {
+  text-decoration: none;
+  height: 80px;
+  background: white;
+  color: #000;
+  margin-top: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba($color: #000000, $alpha: 0.1);
+  }
+
+  border: 1px solid rgba($color: #000000, $alpha: 0.5);
+  border-radius: 4px;
+  font-family: "Open Sans", sans-serif;
+
+  display: grid;
+  grid-template-columns: 140px 300px 1fr 100px;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  grid-template-areas:
+    "img jobname description ."
+    "img company description state"
+    "img  place  description . ";
+
+  p {
+    margin: 0px;
+  }
+
+  .job-img {
+    grid-area: img;
+    width: 120px;
+    height: 60px;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .job-name, .job-company, .description {
+    overflow: hidden;
+  }
+
+  .job-name {
+    grid-area: jobname;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .job-company {
+    grid-area: company;
+    font-size: 14px;
+    color: #167db7;
+  }
+
+  .description {
+    grid-area: description;
+    // overflow: hidden;
+    height: 70px;
+    width: 95%;
+    font-size: 15px;
+    font-weight: 300;
+    padding-right: 10px;
+    align-self: center;
+    justify-self: center;
+    border-right: 1px solid gray;
+  }
+
+  .place-date {
+    grid-area: place;
+    font-size: 13px;
+    align-self: center;
+  }
+
+  .state {
+    display: block;
+    grid-area: state;
+    align-self: center;
+    text-align: center;
+    justify-self: center;
+  }
+}
+
+// collapse zone
+.title {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.description, .about-company, .requirements, .conditions {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.conditions {
+  margin: 0;
+}
+
+.bt-subs-wrap {
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .bt-subs {
+    cursor: pointer;
+    width: 100px;
+    height: 25px;
+    border-radius: 4px;
+    // border: 1px solid $job-color;
+    // color: #000;
+    background-color: rgba($color: $job-color, $alpha: 1);
+    // font-size: 15px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .msg {
+    color: #000;
+  }
+}
+

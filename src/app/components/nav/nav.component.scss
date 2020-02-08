@@ -38,13 +38,18 @@
       // background: $job-color;
       background: $bt-color;
       border-radius: 3px;
-      width: 132px;
+      width: 120px;
       height: 35px;
 
       text-decoration: none;
       color: $bt-font-color;
       font-family: $main-fonts;
       cursor: pointer;
+    }
+
+    .subscriptions {
+      width: 160px;
+      min-width: 160px;
     }
 
     .active-link {
@@ -54,7 +59,7 @@
 
     .search {
       height: 35px;
-      width: 100%;
+      width: 35%;
       height: 35px;
       margin-left: 20px;
       margin-right: 20px;

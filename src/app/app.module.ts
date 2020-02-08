@@ -9,9 +9,11 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
-import { WorkersiteComponent } from './components/workersite/workersite.component';
-import { CompanysiteComponent } from './components/companysite/companysite.component';
+import { WorkersiteComponent } from './components/worker/workersite/workersite.component';
+import { CompanysiteComponent } from './components/company/companysite/companysite.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { JobpillComponent } from './components/job/jobpill/jobpill.component';
+import { JobdetailComponent } from './components/job/jobdetail/jobdetail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     RegisterComponent,
     WorkersiteComponent,
     CompanysiteComponent,
-    ProfileComponent
+    ProfileComponent,
+    JobpillComponent,
+    JobdetailComponent
   ],
   imports: [
     BrowserModule,

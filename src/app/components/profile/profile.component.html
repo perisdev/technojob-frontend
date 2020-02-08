@@ -15,7 +15,7 @@
   </div>
 
   <!-- worker zone -->
-  <img [src]=user?.url_img alt="user image" [ngClass]=getAvatarClass()>
+  <img [src]="user.url_img ? user.url_img : '../../../assets/img/' + storage.getUserType() + '_default.png'"  alt="user image" [ngClass]=getAvatarClass()>
 
   <input [ngClass]="{'input-name': true, 'edit': !readOnly}" name="name" type="text" [(ngModel)]="user.name"
     [readonly]="readOnly" />
@@ -41,7 +41,7 @@
   </div>
 
   <!-- worker accordion -->
-  <div class="accordion" id="accordionExample" *ngIf="storage.getUserType()=='worker' && !editPass">
+  <div class="accordion" id="accordionProfile" *ngIf="storage.getUserType()=='worker' && !editPass">
     <div class="card">
       <div class="card-header" id="headingOne">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
@@ -50,7 +50,7 @@
         </button>
       </div>
 
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionProfile">
         <div class="card-body">
           <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.about' rows="2" cols="120" [readonly]="readOnly"></textarea>
         </div>
@@ -63,7 +63,7 @@
           Education
         </button>
       </div>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionProfile">
         <div class="card-body">
           <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.education' rows="3" cols="120"
             [readonly]="readOnly"></textarea>
@@ -77,7 +77,7 @@
           Experience
         </button>
       </div>
-      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionProfile">
         <div class="card-body">
           <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.experience' rows="3" cols="120"
             [readonly]="readOnly"></textarea>
@@ -91,7 +91,7 @@
           Skills
         </button>
       </div>
-      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionProfile">
         <div class="card-body">
           <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.skills' rows="3" cols="120"
             [readonly]="readOnly"></textarea>
@@ -101,7 +101,7 @@
   </div>
 
   <!-- company accordion -->
-  <div class="accordion" id="accordionExample" *ngIf="storage.getUserType()=='company'  && !editPass">
+  <div class="accordion" id="accordionProfile" *ngIf="storage.getUserType()=='company'  && !editPass">
     <div class="card">
       <div class="card-header" id="headingOne">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
@@ -109,9 +109,9 @@
           Sector
         </button>
       </div>
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionProfile">
         <div class="card-body">
-          <textarea class="input-section" [(ngModel)]='user.sector' rows="2" cols="120"
+          <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.sector' rows="2" cols="120"
             [readonly]="readOnly"></textarea>
         </div>
       </div>
@@ -123,9 +123,9 @@
           Description
         </button>
       </div>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionProfile">
         <div class="card-body">
-          <textarea class="input-section" [(ngModel)]='user.description' rows="5" cols="120"
+          <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.description' rows="5" cols="120"
             [readonly]="readOnly"></textarea>
         </div>
       </div>

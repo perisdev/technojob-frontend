@@ -1,0 +1,79 @@
+import { Component, OnInit } from '@angular/core';
+import { StorageService } from 'src/app/services/storage.service';
+import { ProfileService } from 'src/app/services/profile.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { JobService } from 'src/app/services/job.service';
+
+@Component({
+  selector: 'app-workersite',
+  templateUrl: './workersite.component.html',
+  styleUrls: ['./workersite.component.scss']
+})
+export class WorkersiteComponent implements OnInit {
+
+  public viewType: string = "";
+
+  constructor(private storage: StorageService,
+    private profileService: ProfileService,
+    private jobServices: JobService,
+    private route: ActivatedRoute,
+    private router: Router) {
+  }
+
+  ngOnInit() {
+
+    if (this.storage.getUser()) {
+
+      this.route.paramMap.subscribe(params => {
+
+        this.viewType = params['params'].listType; 
+
+        switch (this.viewType) {
+
+          case 'subscriptions':    
+
+            this.profileService.myProfile(this.storage.user['token']).subscribe(
+              res => {
+                this.storage.subscriptions = res["jobs"];
+                console.log("myProfile: ", this.storage.subscriptions);
+                console.log("len:", this.storage.subscriptions.length);
+              },
+              err => {
+                console.log("myProfile: ", err);
+              }
+            );            
+
+            break;
+
+          case 'top':
+            
+            this.jobServices.getTopJobs().subscribe(
+              res => {
+                this.storage.topJobs = Object.values(res);
+                console.log(this.storage.topJobs);
+              },
+              err => {
+                console.log("jobsTop: ", err);
+              }
+            );  
+
+            break;
+
+          default:
+            this.router.navigate(['']);
+            break;
+        }
+      });
+
+    } else {
+      this.router.navigate(['']);
+    }
+
+
+  }
+
+  public getDetail(index) {
+    console.log(index);
+  }
+
+}

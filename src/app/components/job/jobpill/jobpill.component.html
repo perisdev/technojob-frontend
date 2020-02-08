@@ -1,0 +1,79 @@
+<!-- <a class="wrap" data-toggle="collapse" [href]="'#collapse' + index" aria-expanded="false" aria-controls="collapseExample" *ngIf="index >= 0"> -->
+
+<!--  SUBSCRIPTIONs Type -->
+<a class="wrap" [ngStyle]="{'border-color': storage.status[storage.subscriptions[index].pivot.status].bkColor }"
+  data-toggle="collapse" [href]="'#collapse' + index" aria-expanded="false" aria-controls="collapseExample"
+  *ngIf="index >= 0 && detailType == 'subscriptions'">
+
+  <img class="job-img"
+    [src]="storage.subscriptions[index].company.url_img ? storage.subscriptions[index].company.url_img : '../../../assets/img/company_default.png'"
+    alt="img">
+  <p class="job-name">{{ storage.subscriptions[index].job_name }}</p>
+  <p class="job-company">{{ storage.subscriptions[index].company.name }}</p>
+  <p class="description">{{ storage.subscriptions[index].description }}</p>
+  <p class="place-date">{{ storage.getCityById(storage.subscriptions[index].company.city_id) }} |
+    {{ storage.subscriptions[index].created_at }}</p>
+  <p class="state" [ngStyle]="{'color': storage.status[storage.subscriptions[index].pivot.status].msgColor }">
+    {{ storage.status[storage.subscriptions[index].pivot.status].msg }} </p>
+
+</a>
+
+<div class="collapse" [id]="'collapse' + index" *ngIf="index >= 0 && detailType == 'subscriptions'">
+  <div class="card card-body">
+
+    <p class="sector">{{ storage.subscriptions[index].company.sector }}</p>
+    <p class="about-company">{{ storage.subscriptions[index].company.description }}</p>
+
+    <p class="title">Description</p>
+    <p class="description">{{ storage.subscriptions[index].description }}</p>
+
+    <p class="title">Requirements</p>
+    <p class="requirements">{{ storage.subscriptions[index].requirements }}</p>
+
+    <p class="title">Salary Range</p>
+    <p class="conditions">{{ storage.subscriptions[index].salary }}</p>
+
+  </div>
+</div>
+
+
+<!--  TOPs Type -->
+<a class="wrap" data-toggle="collapse" [href]="'#collapse' + index" aria-expanded="false"
+  aria-controls="collapseExample" *ngIf="index >= 0 && detailType == 'top'">
+
+  <img class="job-img"
+    [src]="storage.topJobs[index].company.url_img ? storage.topJobs[index].company.url_img : '../../../assets/img/company_default.png'"
+    alt="img">
+  <p class="job-name">{{ storage.topJobs[index].job_name }}</p>
+  <p class="job-company">{{ storage.topJobs[index].company.name }}</p>
+  <p class="description">{{ storage.topJobs[index].description }}</p>
+  <p class="place-date">{{ storage.getCityById(storage.topJobs[index].company.city_id) }} |
+    {{ storage.topJobs[index].created_at }}</p>
+  <p class="state">{{ storage.topJobs[index].workers_count }}</p>
+
+</a>
+
+<div class="collapse" [id]="'collapse' + index" *ngIf="index >= 0 && detailType == 'top'">
+  <div class="card card-body">
+
+    <p class="sector">{{ storage.topJobs[index].company.sector }}</p>
+    <p class="about-company">{{ storage.topJobs[index].company.description }}</p>
+
+    <p class="title">Description</p>
+    <p class="description">{{ storage.topJobs[index].description }}</p>
+
+    <p class="title">Requirements</p>
+    <p class="requirements">{{ storage.topJobs[index].requirements }}</p>
+
+    <p class="title">Salary Range</p>
+    <p class="conditions">{{ storage.topJobs[index].salary }}</p>
+
+    <div class="bt-subs-wrap" (click)="subscribe(index)">
+      <p class="bt-subs">
+        Subscribe
+      </p>
+      <span class="msg">{{ msg?.message }}</span>
+    </div>
+
+  </div>
+</div>

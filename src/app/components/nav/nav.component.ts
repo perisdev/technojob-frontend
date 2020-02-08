@@ -11,7 +11,7 @@ import { ProfileService } from 'src/app/services/profile.service';
 })
 export class NavComponent implements OnInit {
 
-  public searchValue="";
+  public searchValue = "";
 
   constructor(private storage: StorageService,
     private router: Router,
@@ -34,7 +34,11 @@ export class NavComponent implements OnInit {
         // is logged
         res => {
           this.storage.setUserType(localStorage.getItem('userType'));
-          this.router.navigate([`/${localStorage.getItem('userType')}site`]);
+          if (localStorage.getItem('userType') == 'worker')
+            this.router.navigate([`/workersite/subscriptions`]);
+          else
+            this.router.navigate([`/companysite`]);
+
         },
         // no logged, clean localStorage
         err => {

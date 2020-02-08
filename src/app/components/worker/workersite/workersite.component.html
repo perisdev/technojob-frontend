@@ -1,0 +1,21 @@
+<div class="wrap">
+
+  <!-- SUBSCRIPTIONs -->
+  <div class="detail" *ngIf="viewType == 'subscriptions'">
+    <app-jobpill [index]="i" [detailType]="'subscriptions'" *ngFor="let item of storage.subscriptions; let i = index" (click)="getDetail(i)">
+    </app-jobpill>
+    <!-- <app-jobpill [index]="1" *ngFor="let i of [].constructor(20)" (click)="getDetail(i)"></app-jobpill> -->
+  </div>
+
+  <!-- TOPs -->
+  <div class="detail" *ngIf="viewType == 'top'">
+    <app-jobpill [index]="i" [detailType]="'top'" *ngFor="let item of storage.topJobs; let i = index" (click)="getDetail(i)">
+    </app-jobpill>
+  </div>
+
+  <!-- SEARCHs -->
+  <div class="detail" *ngIf="viewType == 'top'">
+    SEARCHs !!!
+  </div>
+
+</div>
