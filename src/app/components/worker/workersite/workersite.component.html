@@ -1,57 +1,21 @@
 <div class="wrap">
 
-  <div class="detail">
-    <app-jobpill [index]="i" *ngFor="let item of storage.subscriptions; let i = index" (click)="getDetail(i)">
+  <!-- SUBSCRIPTIONs -->
+  <div class="detail" *ngIf="viewType == 'subscriptions'">
+    <app-jobpill [index]="i" [detailType]="'subscriptions'" *ngFor="let item of storage.subscriptions; let i = index" (click)="getDetail(i)">
     </app-jobpill>
     <!-- <app-jobpill [index]="1" *ngFor="let i of [].constructor(20)" (click)="getDetail(i)"></app-jobpill> -->
   </div>
 
+  <!-- TOPs -->
+  <div class="detail" *ngIf="viewType == 'top'">
+    <app-jobpill [index]="i" [detailType]="'top'" *ngFor="let item of storage.topJobs; let i = index" (click)="getDetail(i)">
+    </app-jobpill>
+  </div>
 
-  <!-- <div class="accordion" id="accordionDetail">
+  <!-- SEARCHs -->
+  <div class="detail" *ngIf="viewType == 'top'">
+    SEARCHs !!!
+  </div>
 
-    <div class="card">
-      <div class="btCollapseWrap" id="headingOne">
-        <div class="btCollapse" data-toggle="collapse" data-target="#worker1">
-          SUBSCRIPTIONS
-        </div>
-      </div>
-
-      <div id="worker1" class="my-body collapse show" aria-labelledby="headingOne" data-parent="#accordionDetail">
-        <div class="card-body">
-          <app-jobpill [index]="i" *ngFor="let item of storage.subscriptions; let i = index" (click)="getDetail(i)">
-          </app-jobpill>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="card">
-      <div class="btCollapseWrap" id="headingOne">
-        <div class="btCollapse" data-toggle="collapse" data-target="#worker2">
-          JOBS
-        </div>
-      </div>
-
-      <div id="worker2" class="my-body collapse show" aria-labelledby="headingOne" data-parent="#accordionDetail">
-        <div class="card-body">
-          <app-jobpill [index]="i" [top]="true" *ngFor="let item of storage.subscriptions; let i = index"
-            (click)="getDetail(i)"></app-jobpill>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="btCollapseWrap" id="headingOne">
-        <div class="btCollapse" data-toggle="collapse" data-target="#worker3">
-          COMPANIES
-        </div>
-      </div>
-
-      <div id="worker3" class=" my-body collapse show" aria-labelledby="headingOne" data-parent="#accordionDetail">
-        <div class="card-body">
-
-        </div>
-      </div>
-    </div>
-  </div> -->
 </div>

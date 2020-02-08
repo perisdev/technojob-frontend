@@ -12,13 +12,14 @@ export class StorageService {
   public status: Array<object> = [
     { msg: 'rejected', msgColor: '#ff0000', bkColor: '#ff000080' },
     { msg: 'pending', msgColor: '#167db7', bkColor: '#167cb780' },
-    { msg: 'selected', msgColor: '#2fc42a', bkColor: '#2fc42a80'}
+    { msg: 'selected', msgColor: '#2fc42a', bkColor: '#2fc42a80' }
   ];
 
   private cities: Array<string> = [];
   public citiesObj: Object;
 
   public subscriptions: Array<object> = [];
+  public topJobs: Array<object> = [];
 
   constructor() { }
 
@@ -38,16 +39,16 @@ export class StorageService {
 
   public getUser(): object {
 
-      this.user = JSON.parse(localStorage.getItem('user'));
-      return this.user;
+    this.user = JSON.parse(localStorage.getItem('user'));
+    return this.user;
   }
 
-  public cleanUser():void {
+  public cleanUser(): void {
     this.user = null;
   }
 
   public persistUser(user: object): void {
-    
+
     if (user) {
       this.user = user;
       this.user['city_name'] = this.getCityById(user['city_id']);
