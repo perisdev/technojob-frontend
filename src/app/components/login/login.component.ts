@@ -50,10 +50,10 @@ export class LoginComponent implements OnInit {
           // setTimeout(() => this.router.navigate([`/${this.storage.getUserType()}site/subscriptions`]), 500);
           setTimeout(() => {
             if (this.storage.getUserType() == 'worker')
-              this.router.navigate(['/workersite/subscriptions']);
+              this.router.navigate(['/workersite/top']);
             else
               this.router.navigate(['/companysite']);
-          }, 500);
+          }, 100);
         },
         err => {
           console.log("err:", err.error);

@@ -32,4 +32,12 @@ export class JobService {
       }
     })
   }
+
+  public search(token: string, body: object): Observable<object> {
+    return this.httpClient.post(this.storage.getUrl() + 'jobs/search', body, {
+     headers: {
+      Authorization: token
+     }
+    })
+  }
 }

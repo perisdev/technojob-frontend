@@ -29,9 +29,8 @@ export class JobpillComponent implements OnInit {
   }
 
   public subscribe(index: number) {
-    console.log("SUBS: ", this.storage.topJobs[index]);
-    
-    let jobId = this.storage.topJobs[index]['id'];
+
+    let jobId = (this.detailType === 'top')? this.storage.topJobs[index]['id']:this.storage.workerSearch[index]['id'];
 
     this.jobService.subscribe(this.storage.user['token'], jobId).subscribe(
       res => {

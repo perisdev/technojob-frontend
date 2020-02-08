@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { StorageService } from '../../services/storage.service';
 import { AccessService } from 'src/app/services/access.service';
 import { ProfileService } from 'src/app/services/profile.service';
+import { JobService } from 'src/app/services/job.service';
 
 @Component({
   selector: 'app-nav',
@@ -15,7 +16,8 @@ export class NavComponent implements OnInit {
 
   constructor(private storage: StorageService,
     private router: Router,
-    private profileService: ProfileService) { }
+    private profileService: ProfileService,
+    private jobService: JobService) { }
 
   ngOnInit() {
     this.isAlreadyLogged();
@@ -49,13 +51,26 @@ export class NavComponent implements OnInit {
       );
   }
 
-  // search by title
+  // search by value and city_id
   mySearch(e) {
 
-    console.log('click:', e.target.text, this.searchValue);
-    // if (search.key === 'Enter')
-    //   this.router.navigate(['/movies/title/', {
-    //     title: search.target.value
-    //   }]);
+    let body: object = {};
+
+    if (this.searchValue.length > 2)
+      body["input"] = this.searchValue;
+
+    if (e.target.text != "*")
+      body["city"] = this.storage.getCityByName(e.target.text);
+    
+    this.jobService.search(this.storage.user['token'], body).subscribe(
+      res => {
+        this.storage.workerSearch = Object.values(res);
+        this.router.navigate(['/workersite/search']);
+      },
+      err => {
+        console.log("search error: ", err);
+      }
+    ); 
+
   }
 }

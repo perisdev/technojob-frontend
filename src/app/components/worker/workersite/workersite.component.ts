@@ -33,34 +33,21 @@ export class WorkersiteComponent implements OnInit {
           case 'subscriptions':    
 
             this.profileService.myProfile(this.storage.user['token']).subscribe(
-              res => {
-                this.storage.subscriptions = res["jobs"];
-                console.log("myProfile: ", this.storage.subscriptions);
-                console.log("len:", this.storage.subscriptions.length);
-              },
-              err => {
-                console.log("myProfile: ", err);
-              }
+              
+              res => this.storage.subscriptions = res["jobs"],
+              err => console.log("subscriptions error: ", err)
             );            
-
             break;
 
           case 'top':
-            
-            this.jobServices.getTopJobs().subscribe(
-              res => {
-                this.storage.topJobs = Object.values(res);
-                console.log(this.storage.topJobs);
-              },
-              err => {
-                console.log("jobsTop: ", err);
-              }
-            );  
 
+            this.jobServices.getTopJobs().subscribe(
+              res => this.storage.topJobs = Object.values(res),
+              err => console.log("jobsTop error: ", err)
+            );  
             break;
 
           default:
-            this.router.navigate(['']);
             break;
         }
       });
@@ -68,12 +55,10 @@ export class WorkersiteComponent implements OnInit {
     } else {
       this.router.navigate(['']);
     }
-
-
   }
 
-  public getDetail(index) {
-    console.log(index);
-  }
+  public emptySearch(): boolean {
 
+    return (this.storage.workerSearch.length) ? false:true;
+  }
 }

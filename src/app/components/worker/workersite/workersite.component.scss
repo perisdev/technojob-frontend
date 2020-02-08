@@ -12,37 +12,19 @@
     border-radius: 10px 0 0 10px;
 
     // background-color: rgba($color: $profile-color, $alpha: 0.7);
-  }
+ 
+    .msg-wrap {
+      height: 100%;
 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
 
-  .accordion {
-    margin-left: 10px;
-    height: calc(100vh - 130px);
-    background-color: rgba($color: $profile-color, $alpha: 0.7);
+      span {
 
-    .card {
-      border: none;
-      background: transparent;
-
-      .btCollapseWrap {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 50px;
-        border-bottom: 1px solid rgba($color: white, $alpha: 0.8);
-
-        .btCollapse {
-          cursor: pointer;
-          color: white;
-          background: transparent;
-        }
-      }
-
-      .card-body {
-        overflow: auto;
-        height: 530px;
-        padding: 0;
-        background: white;
+        font-size: 30px;
+        font-weight: 300;
       }
     }
   }

@@ -14,17 +14,18 @@
     </a>
 
     <!-- worker buttons -->
-    <a class="bt subscriptions" routerLink="/workersite/subscriptions" routerLinkActive="active-link" *ngIf="storage.getUser() && storage.getUserType() == 'worker'">
+    <a class="bt subscriptions" routerLink="/workersite/subscriptions" routerLinkActive="active-link"
+      *ngIf="storage.getUser() && storage.getUserType() == 'worker'">
       <span>SUBSCRIPTIONS</span>
     </a>
-    <a class="bt" routerLink="/workersite/top" routerLinkActive="active-link" *ngIf="storage.getUser() && storage.getUserType() == 'worker'">
+    <a class="bt" routerLink="/workersite/top" routerLinkActive="active-link"
+      *ngIf="storage.getUser() && storage.getUserType() == 'worker'">
       <span>TOP</span>
     </a>
 
     <!-- search zone -->
-    <input [(ngModel)]="searchValue" type="text" placeholder="Search by job, company, requirement or skill... " class="search"
-      *ngIf="storage.getUser()">
-    <!-- (keyup)="mySearch($event)"> -->
+    <input [(ngModel)]="searchValue" type="text" placeholder="Search by job, company, requirement or skill... "
+      class="search" *ngIf="storage.getUser()">
 
     <!-- select place button -->
     <div class="dropdown" *ngIf="storage.getUser()">
@@ -38,9 +39,5 @@
       </div>
     </div>
 
-    <!-- SEARCH -->
-    <!-- <a class="bt" routerLink="#" routerLinkActive="active-link" *ngIf="storage.getUser()">
-      <span>SEARCH</span>
-    </a> -->
   </div>
 </nav>

@@ -82,7 +82,14 @@ export class RegisterComponent implements OnInit {
         this.msg = res;
         this.msgClass = 'msgOk';
         this.storage.persistUser(res["user"]);
-        setTimeout(() => this.router.navigate([`/${this.storage.getUserType()}site`]), 500);
+        // setTimeout(() => this.router.navigate([`/${this.storage.getUserType()}site`]), 500);
+
+        setTimeout(() => {
+          if (this.storage.getUserType() == 'worker')
+            this.router.navigate(['/workersite/top']);
+          else
+            this.router.navigate(['/companysite']);
+        }, 100);
       },
       err => {
         this.msg = err.error;

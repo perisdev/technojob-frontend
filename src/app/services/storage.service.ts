@@ -20,6 +20,7 @@ export class StorageService {
 
   public subscriptions: Array<object> = [];
   public topJobs: Array<object> = [];
+  public workerSearch: Array<object> = [];
 
   constructor() { }
 
@@ -78,11 +79,12 @@ export class StorageService {
   public getCityByName(value: string): number {
 
     let regex = new RegExp(value, 'i');
-    return this.cities.findIndex(item => item.match(regex));
+    let id_city = this.cities.findIndex(item => item.match(regex));
+    return (id_city >= 0)? id_city + 1: id_city;
   }
 
   public getCityById(id: number): string {
 
-    return this.cities[id] ? this.cities[id] : null;
+    return this.cities[id - 1] ? this.cities[id - 1] : null;
   }
 }
