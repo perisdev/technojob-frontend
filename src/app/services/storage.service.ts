@@ -18,9 +18,14 @@ export class StorageService {
   private cities: Array<string> = [];
   public citiesObj: Object;
 
+  // workers storage
   public subscriptions: Array<object> = [];
   public topJobs: Array<object> = [];
   public workerSearch: Array<object> = [];
+  
+  // companies storage
+  public companyJobs: Array<object> = [];
+
 
   constructor() { }
 

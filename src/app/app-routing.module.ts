@@ -17,7 +17,7 @@ const routes: Routes = [
 
   // sites
   { path: "workersite/:listType", component: WorkersiteComponent},
-  { path: "companysite", component: CompanysiteComponent}
+  { path: "companysite/:listType", component: CompanysiteComponent}
 ];
 
 @NgModule({

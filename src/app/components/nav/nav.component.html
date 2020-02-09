@@ -23,9 +23,26 @@
       <span>TOP</span>
     </a>
 
+    <!-- company buttons -->
+    <a class="bt" routerLink="/companysite/new" routerLinkActive="active-link"
+      *ngIf="storage.getUser() && storage.getUserType() == 'company'">
+      <span>NEW</span>
+    </a>
+    <a class="bt" routerLink="/companysite/jobs" routerLinkActive="active-link"
+      *ngIf="storage.getUser() && storage.getUserType() == 'company'">
+      <span>JOBS</span>
+    </a>
+    <a class="bt" routerLink="/companysite/workers" routerLinkActive="active-link"
+      *ngIf="storage.getUser() && storage.getUserType() == 'company'">
+      <span>WORKERS</span>
+    </a>
+
     <!-- search zone -->
-    <input [(ngModel)]="searchValue" type="text" placeholder="Search by job, company, requirement or skill... "
-      class="search" *ngIf="storage.getUser()">
+    <input [(ngModel)]="searchValue" type="text" placeholder="Search by job, company, skill..."
+      class="search" *ngIf="storage.getUser() && storage.getUserType() == 'worker'">
+
+    <input [(ngModel)]="searchValue" type="text" placeholder="Search by skills, education..."
+      class="search" *ngIf="storage.getUser() && storage.getUserType() == 'company'">
 
     <!-- select place button -->
     <div class="dropdown" *ngIf="storage.getUser()">

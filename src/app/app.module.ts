@@ -13,7 +13,6 @@ import { WorkersiteComponent } from './components/worker/workersite/workersite.c
 import { CompanysiteComponent } from './components/company/companysite/companysite.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { JobpillComponent } from './components/job/jobpill/jobpill.component';
-import { JobdetailComponent } from './components/job/jobdetail/jobdetail.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { JobdetailComponent } from './components/job/jobdetail/jobdetail.compone
     CompanysiteComponent,
     ProfileComponent,
     JobpillComponent,
-    JobdetailComponent
   ],
   imports: [
     BrowserModule,

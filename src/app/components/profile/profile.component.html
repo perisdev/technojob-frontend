@@ -15,7 +15,7 @@
   </div>
 
   <!-- worker zone -->
-  <img [src]="user.url_img ? user.url_img : '../../../assets/img/' + storage.getUserType() + '_default.png'"  alt="user image" [ngClass]=getAvatarClass()>
+  <img [src]="user.url_img ? user.url_img : '../../../assets/img/' + storage.getUserType() + '_default.png'"  alt="user image" [ngClass]=getAvatarClass() *ngIf="storage.getUserType() != 'both'">
 
   <input [ngClass]="{'input-name': true, 'edit': !readOnly}" name="name" type="text" [(ngModel)]="user.name"
     [readonly]="readOnly" />

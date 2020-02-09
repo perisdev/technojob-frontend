@@ -36,7 +36,9 @@
     align-self: center;
   }
 
-  .job-name, .job-company, .description {
+  .job-name,
+  .job-company,
+  .description {
     overflow: hidden;
   }
 
@@ -87,7 +89,10 @@
   font-weight: 500;
 }
 
-.description, .about-company, .requirements, .conditions {
+.description,
+.about-company,
+.requirements,
+.conditions {
   font-size: 15px;
   font-weight: 300;
 }
@@ -122,3 +127,56 @@
   }
 }
 
+// company JOBs controls
+.bt-control-wrap {
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .bt-finalize,
+  .bt-remove {
+    cursor: pointer;
+    width: 100px;
+    height: 25px;
+    border-radius: 4px;
+    margin: 5px;
+
+    color: #fff;
+    text-align: center;
+  }
+
+  .bt-finalize {
+    background-color: $bt-finalize;
+  }
+
+  .bt-remove {
+    background-color: $bt-remove;
+  }
+}
+
+.msgJobs {
+  width: 100%;
+  text-align: center;
+  text-justify: center;
+  color: #000;
+}
+
+.active, .no-active {
+  display: block;
+  grid-area: state;
+  align-self: center;
+  text-align: center;
+  justify-self: center;
+  font-weight: 600;
+}
+
+.active {
+  color: rgb(28, 185, 62);
+}
+
+.no-active {
+  color: rgb(160, 155, 155);
+}
+// ...

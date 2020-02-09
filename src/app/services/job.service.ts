@@ -33,11 +33,60 @@ export class JobService {
     })
   }
 
+  /**
+   * search jobs by match value and place.
+   * 
+   * @param token 
+   * @param body 
+   */
   public search(token: string, body: object): Observable<object> {
     return this.httpClient.post(this.storage.getUrl() + 'jobs/search', body, {
-     headers: {
-      Authorization: token
-     }
+      headers: {
+        Authorization: token
+      }
     })
   }
+
+  /**
+   * remove one job
+   * 
+   * @param token 
+   * @param jobId 
+   */
+  public removeJob(token: string, jobId: number): Observable<object> {
+    return this.httpClient.delete(this.storage.getUrl() + 'jobs/remove/' + jobId, {
+      headers: {
+        Authorization: token
+      }
+    });
+  }
+
+  /**
+   * change job status to finalized
+   * 
+   * @param token 
+   * @param jobId 
+   */
+  public finalizeJob(token: string, jobId: number): Observable<object> {
+    return this.httpClient.patch(this.storage.getUrl() + 'jobs/final/' + jobId, {}, {
+      headers: {
+        Authorization: token
+      }
+    })
+  }
+
+  /**
+   * create new job
+   * 
+   * @param token 
+   * @param body 
+   */
+  public createJob(token: string, body: object): Observable<object> {
+    return this.httpClient.post(this.storage.getUrl() + 'jobs/add', body, {
+      headers: {
+        Authorization: token
+      }
+    })
+  }
+
 }
