@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
             if (this.storage.getUserType() == 'worker')
               this.router.navigate(['/workersite/top']);
             else
-              this.router.navigate(['/companysite']);
+              this.router.navigate(['/companysite/jobs']);
           }, 100);
         },
         err => {

@@ -1,1 +1,31 @@
-<p>companysite works!</p>
+<div class="wrap">
+
+  <!-- NEW -->
+  <div class="detail" *ngIf="viewType == 'new'">
+    <span>.. NEW ..</span>
+  
+  </div>
+
+  <!-- JOBs -->
+  <div class="detail" *ngIf="viewType == 'jobs'">
+    <app-jobpill [index]="i" [detailType]="'jobs'" *ngFor="let item of storage.companyJobs; let i = index">
+    </app-jobpill>
+  </div>
+
+  <!-- WORKERs -->
+  <div class="detail" *ngIf="viewType == 'workers'">
+    <span>.. WORKERS ..</span>
+  </div>
+
+  <!-- SEARCHs -->
+  <div class="detail" *ngIf="viewType == 'search'">
+    <div class="msg-wrap" *ngIf="emptySearch()">
+      <span>..  no matches found  ..</span>
+    </div>
+
+    <!-- <h4 *ngIf="!emptySearch()">JOBs</h4>
+    <app-jobpill [index]="i" [detailType]="'search'" *ngFor="let item of storage.workerSearch; let i = index">
+    </app-jobpill>     -->
+  </div>
+
+</div>

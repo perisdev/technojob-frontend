@@ -118,3 +118,43 @@
 
   </div>
 </div>
+
+<!--  JOBs Type  called from companysite -->
+<a class="wrap" data-toggle="collapse" [href]="'#collapse' + index" aria-expanded="false"
+  aria-controls="collapseExample" *ngIf="index >= 0 && detailType == 'jobs'">
+
+  <img class="job-img"
+    [src]="storage.user.url_img ? storage.user.url_img : '../../../assets/img/company_default.png'"
+    alt="img">
+  <p class="job-name">{{ storage.companyJobs[index].job_name }}</p>
+  <p class="job-company">{{ storage.user.name }}</p>
+  <p class="description">{{ storage.companyJobs[index].job_description }}</p>
+  <p class="place-date">{{ storage.getCityById(storage.user.city_id) }} |
+    {{ storage.companyJobs[index].created_at }}</p>
+  <p [ngClass]="getCompanyJobStatus(storage.companyJobs[index].active)">{{ (storage.companyJobs[index].active)? 'active':'finalized' }}</p>
+
+</a>
+
+<div class="collapse" [id]="'collapse' + index" *ngIf="index >= 0 && detailType == 'jobs'">
+  <div class="card card-body">
+
+    <p class="sector">{{ storage.user.sector }}</p>
+    <p class="about-company">{{ storage.user.description }}</p>
+
+    <p class="title">Description</p>
+    <p class="description">{{ storage.companyJobs[index].job_description }}</p>
+
+    <p class="title">Requirements</p>
+    <p class="requirements">{{ storage.companyJobs[index].requirements }}</p>
+
+    <p class="title">Salary Range</p>
+    <p class="conditions">{{ storage.companyJobs[index].salary }}</p>
+
+    <div class="bt-control-wrap">
+      <p class="bt-finalize"  (click)="finalizeCompanyJob(index)" *ngIf="storage.companyJobs[index].active">Finalize</p>
+      <p class="bt-remove" (click)="removeCompanyJob(index)">Remove</p>
+    </div>
+    <span class="msgJobs">{{ msg?.message }}</span>
+
+  </div>
+</div>

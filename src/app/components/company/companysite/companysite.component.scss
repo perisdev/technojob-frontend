@@ -1,3 +1,31 @@
-p {
-  color: white;
+@import "../../../../variables.scss";
+
+.wrap {
+
+  .detail {
+    overflow: auto;
+    margin-left: 10px;
+    padding: 20px;
+    height: calc(100vh - 130px);
+    background-color: #fff;
+
+    border-radius: 10px 0 0 10px;
+
+    // background-color: rgba($color: $profile-color, $alpha: 0.7);
+ 
+    .msg-wrap {
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      span {
+
+        font-size: 30px;
+        font-weight: 300;
+      }
+    }
+  }
 }

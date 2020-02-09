@@ -39,7 +39,7 @@ export class NavComponent implements OnInit {
           if (localStorage.getItem('userType') == 'worker')
             this.router.navigate([`/workersite/subscriptions`]);
           else
-            this.router.navigate([`/companysite`]);
+            this.router.navigate([`/companysite/jobs`]);
 
         },
         // no logged, clean localStorage
@@ -62,15 +62,21 @@ export class NavComponent implements OnInit {
     if (e.target.text != "*")
       body["city"] = this.storage.getCityByName(e.target.text);
     
-    this.jobService.search(this.storage.user['token'], body).subscribe(
-      res => {
-        this.storage.workerSearch = Object.values(res);
-        this.router.navigate(['/workersite/search']);
-      },
-      err => {
-        console.log("search error: ", err);
-      }
-    ); 
+
+    if (this.storage.getUserType() == 'worker'){
+      this.jobService.search(this.storage.user['token'], body).subscribe(
+        res => {
+          this.storage.workerSearch = Object.values(res);
+          this.router.navigate(['/workersite/search']);
+        },
+        err => {
+          console.log("search error: ", err);
+        }
+      ); 
+    } else {
+
+      //  company search workers.
+    }
 
   }
 }
