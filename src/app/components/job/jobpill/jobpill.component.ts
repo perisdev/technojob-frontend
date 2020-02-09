@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
 import { JobService } from 'src/app/services/job.service';
 
@@ -18,10 +18,9 @@ export class JobpillComponent implements OnInit {
   public msg: object = { message: '...' };
 
   constructor(private storage: StorageService,
-     private jobService: JobService) { }
+    private jobService: JobService) { }
 
   ngOnInit() {
-
   }
 
   // get subscription status.
@@ -58,21 +57,21 @@ export class JobpillComponent implements OnInit {
         this.msg = err.error;
         setTimeout(() => this.msg = { message: '...' }, 2000);
       }
-      );
-      
-    }
-    
-    public finalizeCompanyJob(index: number) {
-      
-      let jobId = this.storage.companyJobs[index]['id'];
-      
-      this.jobService.finalizeJob(this.storage.user['token'], jobId).subscribe(
-        res => {
-          this.storage.companyJobs[index]['active'] = 0;
-          this.msg = { message: '.. finalized successfully ..' }
-          setTimeout(() => this.msg = { message: '...' }, 2000);
-        },
-        err => {
+    );
+
+  }
+
+  public finalizeCompanyJob(index: number) {
+
+    let jobId = this.storage.companyJobs[index]['id'];
+
+    this.jobService.finalizeJob(this.storage.user['token'], jobId).subscribe(
+      res => {
+        this.storage.companyJobs[index]['active'] = 0;
+        this.msg = { message: '.. finalized successfully ..' }
+        setTimeout(() => this.msg = { message: '...' }, 2000);
+      },
+      err => {
         this.msg = err.error;
         setTimeout(() => this.msg = { message: '...' }, 2000);
       }

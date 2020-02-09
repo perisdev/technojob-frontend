@@ -39,7 +39,7 @@ export class NavComponent implements OnInit {
           if (localStorage.getItem('userType') == 'worker')
             this.router.navigate([`/workersite/subscriptions`]);
           else
-            this.router.navigate([`/companysite/new`]);
+            this.router.navigate([`/companysite/jobs`]);
 
         },
         // no logged, clean localStorage

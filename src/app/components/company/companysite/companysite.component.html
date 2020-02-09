@@ -8,17 +8,18 @@
 
       <form (submit)="newJob(form)" #form="ngForm">
         <input name="job_name" type="text" maxlength="100" placeholder="*job name" ngModel #email="ngModel" required>
-        
-        <textarea name="job_description" type="textarea" maxlength="255" placeholder="*description" ngModel #description="ngModel"
-        cols="" rows="4" required></textarea>
-        
-        <textarea name="requirements" type="textarea" maxlength="255" placeholder="*requirements" ngModel #description="ngModel" cols=""
-        rows="2" required></textarea>
-        
-        <input name="salary" type="text" maxlength="50" placeholder="*salary, conditions.." ngModel #email="ngModel" required>
+
+        <textarea name="job_description" type="textarea" maxlength="255" placeholder="*description" ngModel
+          #description="ngModel" cols="" rows="4" required></textarea>
+
+        <textarea name="requirements" type="textarea" maxlength="255" placeholder="*requirements" ngModel
+          #description="ngModel" cols="" rows="2" required></textarea>
+
+        <input name="salary" type="text" maxlength="50" placeholder="*salary, conditions.." ngModel #email="ngModel"
+          required>
 
         <span class="required">* required data</span>
-        
+
         <button>active</button>
       </form>
 
@@ -34,8 +35,11 @@
   </div>
 
   <!-- WORKERs -->
-  <div class="detail" *ngIf="viewType == 'workers'">
-    <span>.. WORKERS ..</span>
+  <div class="detail" *ngIf="viewType == 'workers' && storage.companyJobs">
+    <section class="job-section" *ngFor="let item of storage.companyJobs; let iJob = index">
+      <p class="job-data">COD: {{ storage.companyJobs[iJob].id }}  |  {{ storage.companyJobs[iJob].job_name }}</p>
+      <app-workerpill [iJob]="iJob" [iWorker]="iWorker" [detailType]="'workers'" *ngFor="let item of storage.companyJobs[iJob].workers; let iWorker = index" ></app-workerpill>
+    </section>
   </div>
 
   <!-- SEARCHs -->

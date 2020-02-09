@@ -76,6 +76,20 @@ export class JobService {
   }
 
   /**
+   * change job-worker status to rejected, pending, selected.
+   * 
+   * @param token 
+   * @param jobId 
+   */
+  public statusJobWorker(token: string, body: object, jobId: number): Observable<object> {
+    return this.httpClient.patch(this.storage.getUrl() + 'jobs/status/' + jobId, body, {
+      headers: {
+        Authorization: token
+      }
+    })
+  }
+
+  /**
    * create new job
    * 
    * @param token 

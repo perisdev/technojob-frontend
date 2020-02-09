@@ -37,6 +37,7 @@ export class CompanysiteComponent implements OnInit {
             break;
 
           case 'jobs':
+          case 'workers':
 
             this.profileService.myProfile(this.storage.user['token']).subscribe(
 
@@ -46,14 +47,6 @@ export class CompanysiteComponent implements OnInit {
               },
               err => console.log("companyJobs error: ", err)
             );
-            break;
-
-          case 'workers':
-
-            // this.jobServices.getTopJobs().subscribe(
-            //   res => this.storage.topJobs = Object.values(res),
-            //   err => console.log("jobsTop error: ", err)
-            // );  
             break;
 
           default:

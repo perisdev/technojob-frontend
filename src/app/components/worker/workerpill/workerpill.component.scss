@@ -1,0 +1,145 @@
+@import "../../../../variables.scss";
+.wrap {
+  text-decoration: none;
+  height: 80px;
+  background: white;
+  color: #000;
+  margin-top: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba($color: #000000, $alpha: 0.1);
+  }
+
+  border: 1px solid rgba($color: #000000, $alpha: 0.5);
+  border-radius: 4px;
+  font-family: "Open Sans", sans-serif;
+
+  display: grid;
+  grid-template-columns: 80px 300px 1fr 1fr 100px;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  grid-template-areas:
+    "img name  about skills   .  "
+    "img email about skills  state"
+    "img place about skills   . ";
+
+  p {
+    margin: 0px;
+  }
+
+  .worker-img {
+    grid-area: img;
+    width: 70px;
+    height: 70px;
+
+    justify-self: center;
+    align-self: center;
+
+    border-radius: 4px 0 0 4px;
+  }
+
+  .worker-name,
+  .worker-email,
+  .worker-about,
+  .worker-skills {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .worker-name {
+    grid-area: name;
+    font-size: 17px;
+    font-weight: 700;
+    margin-left: 20px;
+  }
+
+  .worker-email {
+    grid-area: email;
+    margin-left: 20px;
+    font-size: 14px;
+    color: #167db7;
+  }
+
+  .worker-about,
+  .worker-skills {
+    width: 95%;
+    height: 90%;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 2px;
+    padding-right: 10px;
+    align-self: center;
+    justify-self: center;
+    border-right: 1px solid gray;
+  }
+
+  .worker-about {
+    grid-area: about;
+  }
+
+  .worker-skills {
+    grid-area: skills;
+  }
+
+  .worker-place {
+    grid-area: place;
+    margin-left: 20px;
+    font-size: 13px;
+    align-self: center;
+  }
+
+  .state {
+    display: block;
+    grid-area: state;
+    align-self: center;
+    text-align: center;
+    justify-self: center;
+  }
+}
+
+// collapse zone
+.title {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.detail {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+// company JOBs controls
+.bt-control-wrap {
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  .bt-rejected,
+  .bt-selected,
+  .bt-pending {
+    cursor: pointer;
+    width: 100px;
+    height: 25px;
+    border-radius: 4px;
+    margin: 5px;
+
+    color: #fff;
+    text-align: center;
+  }
+
+  .bt-rejected {
+    background-color: $bt-remove;
+  }
+
+  .bt-pending {
+    background-color: $bt-pending;
+  }
+
+  .bt-selected {
+    background-color: $bt-selected;
+  }
+}

@@ -103,9 +103,27 @@
         color: $job-color;
       }
     }
-  }
 
-  .back {
-    background-color: rgba($color: #fff, $alpha: 0.8);
+    .job-section {
+      padding-bottom: 60px;
+
+      .job-data {
+        font-family: "Open Sans", sans-serif;
+        margin-bottom: 30px;
+        font-weight: 600;
+        font-size: 1.2em;
+        color: #000;
+      }
+      // .job-data {
+      //   padding: 2px;
+      //   padding-left: 15px;
+      //   margin-bottom: 20px;
+      //   font-weight: 400;
+      //   font-size: 1.2em;
+      //   // background: $job-color;
+      //   background: #000000;
+      //   color: #fff;
+      // }
+    }
   }
 }

@@ -1,0 +1,43 @@
+<!--  WORKERS Type -->
+<a class="wrap" [ngStyle]="{'border-color': storage.status[storage.companyJobs[iJob].workers[iWorker].pivot.status].bkColor }" 
+data-toggle="collapse" [href]="'#collapse' + + iJob + iWorker" aria-expanded="false"
+  aria-controls="collapseExample" *ngIf="iJob >= 0 && iWorker >= 0 && storage.companyJobs && detailType == 'workers'">
+
+  <img class="worker-img"
+    [src]="storage.companyJobs[iJob].workers[iWorker].url_img ? storage.companyJobs[iJob].workers[iWorker].url_img : '../../../assets/img/worker_default.png'"
+    alt="img">
+
+  <p class="worker-name">{{ storage.companyJobs[iJob].workers[iWorker].name }},
+    {{ storage.companyJobs[iJob].workers[iWorker].surname }}</p>
+
+  <p class="worker-about">{{ storage.companyJobs[iJob].workers[iWorker].about }}</p>
+  <p class="worker-skills">{{ storage.companyJobs[iJob].workers[iWorker].skills }}</p>
+  <p class="worker-email">{{ storage.companyJobs[iJob].workers[iWorker].email }}</p>
+  <p class="worker-place">{{ storage.getCityById(storage.companyJobs[iJob].workers[iWorker].city_id) }}</p>
+  <p class="state" [ngStyle]="{'color': storage.status[storage.companyJobs[iJob].workers[iWorker].pivot.status].msgColor }">
+    {{ storage.status[storage.companyJobs[iJob].workers[iWorker].pivot.status].msg }} </p>
+
+</a>
+
+<div class="collapse" [id]="'collapse' + iJob + iWorker" *ngIf="iJob >= 0 && iWorker >= 0 && storage.companyJobs && detailType == 'workers'">
+  <div class="card card-body">
+    
+    <p class="title">About</p>
+    <p class="detail">{{ storage.companyJobs[iJob].workers[iWorker].about }}</p>
+    
+    <p class="title">Education</p>
+    <p class="detail">{{ storage.companyJobs[iJob].workers[iWorker].education }}</p>
+    
+    <p class="title">Experience</p>
+    <p class="detail">{{ storage.companyJobs[iJob].workers[iWorker].experience }}</p>
+    
+    <p class="title">Skills</p>
+    <p class="detail">{{ storage.companyJobs[iJob].workers[iWorker].skills }}</p>
+
+    <div class="bt-control-wrap">
+      <p class="bt-rejected"  (click)="changeWorkerStatus(0)" *ngIf="storage.companyJobs[iJob].workers[iWorker].pivot.status != 0">Rejected</p>
+      <p class="bt-pending"  (click)="changeWorkerStatus(1)" *ngIf="storage.companyJobs[iJob].workers[iWorker].pivot.status != 1">Pending</p>
+      <p class="bt-selected"  (click)="changeWorkerStatus(2)" *ngIf="storage.companyJobs[iJob].workers[iWorker].pivot.status != 2">Selected</p>
+    </div>
+  </div>
+</div>
