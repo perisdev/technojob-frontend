@@ -2,8 +2,29 @@
 
   <!-- NEW -->
   <div class="detail" *ngIf="viewType == 'new'">
-    <span>.. NEW ..</span>
-  
+
+    <div class="new-wrap">
+      <h1>Active new Job Offer</h1>
+
+      <form (submit)="newJob(form)" #form="ngForm">
+        <input name="job_name" type="text" maxlength="100" placeholder="*job name" ngModel #email="ngModel" required>
+        
+        <textarea name="job_description" type="textarea" maxlength="255" placeholder="*description" ngModel #description="ngModel"
+        cols="" rows="4" required></textarea>
+        
+        <textarea name="requirements" type="textarea" maxlength="255" placeholder="*requirements" ngModel #description="ngModel" cols=""
+        rows="2" required></textarea>
+        
+        <input name="salary" type="text" maxlength="50" placeholder="*salary, conditions.." ngModel #email="ngModel" required>
+
+        <span class="required">* required data</span>
+        
+        <button>active</button>
+      </form>
+
+      <span class="msg">{{msg?.message}}</span>
+    </div>
+
   </div>
 
   <!-- JOBs -->
@@ -20,7 +41,7 @@
   <!-- SEARCHs -->
   <div class="detail" *ngIf="viewType == 'search'">
     <div class="msg-wrap" *ngIf="emptySearch()">
-      <span>..  no matches found  ..</span>
+      <span>.. no matches found ..</span>
     </div>
 
     <!-- <h4 *ngIf="!emptySearch()">JOBs</h4>

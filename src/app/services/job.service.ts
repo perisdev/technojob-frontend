@@ -75,4 +75,18 @@ export class JobService {
     })
   }
 
+  /**
+   * create new job
+   * 
+   * @param token 
+   * @param body 
+   */
+  public createJob(token: string, body: object): Observable<object> {
+    return this.httpClient.post(this.storage.getUrl() + 'jobs/add', body, {
+      headers: {
+        Authorization: token
+      }
+    })
+  }
+
 }
