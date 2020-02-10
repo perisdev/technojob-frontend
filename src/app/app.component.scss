@@ -7,9 +7,11 @@
   opacity: 1;
 
   width: 100vw;
+  min-width: 1000px;
   height: 100vh;
 
-  overflow: hidden;
+  // overflow: hidden;
+  overflow-y: hidden;
 
   display: grid;
   grid-template-columns: auto 1fr;

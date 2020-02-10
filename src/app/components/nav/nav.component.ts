@@ -73,9 +73,16 @@ export class NavComponent implements OnInit {
           console.log("search error: ", err);
         }
       ); 
-    } else {
-
-      //  company search workers.
+    } else if (this.storage.getUserType() == 'company') {
+      this.profileService.searchWorker(this.storage.user['token'], body).subscribe(
+        res => {
+          this.storage.companySearch = Object.values(res);
+          this.router.navigate(['/companysite/search']);
+        },
+        err => {
+          console.log("search error: ", err);
+        }
+      ); 
     }
 
   }

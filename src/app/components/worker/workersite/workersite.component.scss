@@ -1,18 +1,14 @@
 @import "../../../../variables.scss";
 
 .wrap {
-
   .detail {
     overflow: auto;
     margin-left: 10px;
     padding: 20px;
     height: calc(100vh - 130px);
     background-color: #fff;
-
     border-radius: 10px 0 0 10px;
 
-    // background-color: rgba($color: $profile-color, $alpha: 0.7);
- 
     .msg-wrap {
       height: 100%;
 
@@ -22,11 +18,16 @@
       text-align: center;
 
       span {
-
         font-size: 30px;
         font-weight: 300;
       }
     }
+
+    #search-matches {
+      font-weight: 400;
+      font-size: 1.3em;
+      color: $job-color;
+      margin: 10px 0 30px 0;
+    }
   }
 }
-

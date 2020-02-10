@@ -33,22 +33,21 @@ export class CompanysiteComponent implements OnInit {
         switch (this.viewType) {
 
           case 'new':
-
             break;
 
           case 'jobs':
           case 'workers':
 
             this.profileService.myProfile(this.storage.user['token']).subscribe(
-
               res => {
                 this.storage.companyJobs = res["jobs"];
-                console.log('companyJobs: ', this.storage.companyJobs);
               },
               err => console.log("companyJobs error: ", err)
             );
             break;
-
+            
+          case 'search':
+              break;
           default:
             break;
         }
@@ -60,8 +59,7 @@ export class CompanysiteComponent implements OnInit {
   }
 
   public emptySearch(): boolean {
-
-    return (this.storage.workerSearch.length) ? false : true;
+    return (this.storage.companySearch.length) ? false : true;
   }
 
   public newJob(form) {
@@ -77,13 +75,13 @@ export class CompanysiteComponent implements OnInit {
         },
         err => {
           this.msg = err.error;
-          setTimeout(() => this.msg = { message: ""} , 2000);
+          setTimeout(() => this.msg = { message: "" }, 2000);
         }
       );
 
     } else {
       this.msg = { message: '.. complement all data ..' }
-      setTimeout(() => this.msg = { message: ""} , 2000);
+      setTimeout(() => this.msg = { message: "" }, 2000);
     }
   }
 

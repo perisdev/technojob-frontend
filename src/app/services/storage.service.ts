@@ -25,6 +25,7 @@ export class StorageService {
   
   // companies storage
   public companyJobs: Array<object> = [];
+  public companySearch: Array<object> = [];
 
 
   constructor() { }

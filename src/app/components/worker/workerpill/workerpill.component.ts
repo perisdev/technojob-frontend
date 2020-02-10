@@ -23,18 +23,15 @@ export class WorkerpillComponent implements OnInit {
   constructor(private storage: StorageService, private jobService: JobService) { }
 
   ngOnInit() {
-
   }
 
   public changeWorkerStatus(status: number) {
 
-    
     let jobId = this.storage.companyJobs[this.iJob]['id'];
     let body = {
       "workerId": this.storage.companyJobs[this.iJob]['workers'][this.iWorker].id,
       "status": status
     };
-    console.log("status", status, "id", jobId, body);
 
     this.jobService.statusJobWorker(this.storage.user['token'], body, jobId).subscribe(
       res => {

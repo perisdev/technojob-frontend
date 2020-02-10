@@ -18,21 +18,21 @@
       *ngIf="storage.getUser() && storage.getUserType() == 'worker'">
       <span>SUBSCRIPTIONS</span>
     </a>
-    <a class="bt" routerLink="/workersite/top" routerLinkActive="active-link"
+    <a class="bt top" routerLink="/workersite/top" routerLinkActive="active-link"
       *ngIf="storage.getUser() && storage.getUserType() == 'worker'">
       <span>TOP</span>
     </a>
 
     <!-- company buttons -->
-    <a class="bt" routerLink="/companysite/new" routerLinkActive="active-link"
+    <a class="bt new" routerLink="/companysite/new" routerLinkActive="active-link"
       *ngIf="storage.getUser() && storage.getUserType() == 'company'">
       <span>NEW</span>
     </a>
-    <a class="bt" routerLink="/companysite/jobs" routerLinkActive="active-link"
+    <a class="bt job" routerLink="/companysite/jobs" routerLinkActive="active-link"
       *ngIf="storage.getUser() && storage.getUserType() == 'company'">
       <span>JOBS</span>
     </a>
-    <a class="bt" routerLink="/companysite/workers" routerLinkActive="active-link"
+    <a class="bt worker" routerLink="/companysite/workers" routerLinkActive="active-link"
       *ngIf="storage.getUser() && storage.getUserType() == 'company'">
       <span>WORKERS</span>
     </a>

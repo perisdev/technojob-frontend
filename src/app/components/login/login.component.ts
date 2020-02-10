@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
   msg: object;
   msgClass: String = 'msgKo';
 
-
   constructor(private route: ActivatedRoute,
     private router: Router,
     private storage: StorageService,
@@ -30,7 +29,6 @@ export class LoginComponent implements OnInit {
       this.email.nativeElement.focus()
     }, 0);
   }
-
 
   ngOnInit() {
 
@@ -47,7 +45,6 @@ export class LoginComponent implements OnInit {
           this.msg = res;
           this.msgClass = 'msgOk';
           this.storage.persistUser(res["user"]);
-          // setTimeout(() => this.router.navigate([`/${this.storage.getUserType()}site/subscriptions`]), 500);
           setTimeout(() => {
             if (this.storage.getUserType() == 'worker')
               this.router.navigate(['/workersite/top']);
@@ -56,7 +53,6 @@ export class LoginComponent implements OnInit {
           }, 100);
         },
         err => {
-          console.log("err:", err.error);
           this.msg = err.error;
           this.msgClass = 'msgKo';
         }

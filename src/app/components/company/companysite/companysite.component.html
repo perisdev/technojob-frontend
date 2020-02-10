@@ -47,10 +47,9 @@
     <div class="msg-wrap" *ngIf="emptySearch()">
       <span>.. no matches found ..</span>
     </div>
-
-    <!-- <h4 *ngIf="!emptySearch()">JOBs</h4>
-    <app-jobpill [index]="i" [detailType]="'search'" *ngFor="let item of storage.workerSearch; let i = index">
-    </app-jobpill>     -->
+    <h4 id="search-matches" *ngIf="!emptySearch()">- Search Matches -</h4>
+    <app-workerpill [iJob]="0" [iWorker]="i" [detailType]="'search'" *ngFor="let item of storage.companySearch; let i = index">
+    </app-workerpill>    
   </div>
 
 </div>

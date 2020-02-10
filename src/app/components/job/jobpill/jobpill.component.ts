@@ -35,13 +35,14 @@ export class JobpillComponent implements OnInit {
     this.jobService.subscribe(this.storage.user['token'], jobId).subscribe(
       res => {
         this.msg = { message: '.. subscription successful ..' };
+        this.storage.topJobs[index]['workers_count']++;
+        setTimeout(() => this.msg = { message: '...' }, 2000);
       },
       err => {
         this.msg = err.error;
         setTimeout(() => this.msg = { message: '...' }, 2000);
       }
     );
-
   }
 
   public removeCompanyJob(index: number) {
@@ -58,7 +59,6 @@ export class JobpillComponent implements OnInit {
         setTimeout(() => this.msg = { message: '...' }, 2000);
       }
     );
-
   }
 
   public finalizeCompanyJob(index: number) {
@@ -76,7 +76,6 @@ export class JobpillComponent implements OnInit {
         setTimeout(() => this.msg = { message: '...' }, 2000);
       }
     );
-
   }
 
 

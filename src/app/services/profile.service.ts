@@ -10,7 +10,6 @@ export class ProfileService {
 
   constructor(private storage: StorageService, private httpClient: HttpClient) { }
 
-  // EndPoints
   public myProfile(token: string): Observable<object> {
     return this.httpClient.get(this.storage.getUrl() + 'myprofile', {
       headers: {
@@ -26,9 +25,17 @@ export class ProfileService {
       }
     })
   }
-
+  
   public pass(token: string, body: object): Observable<object> {
     return this.httpClient.patch(this.storage.getUrl() + 'myprofile/pass', body, {
+      headers: {
+        Authorization: token
+      }
+    })
+  }
+
+  public searchWorker(token: string, body: object): Observable<object> {
+    return this.httpClient.post(this.storage.getUrl() + 'profiles/search', body, {
       headers: {
         Authorization: token
       }
