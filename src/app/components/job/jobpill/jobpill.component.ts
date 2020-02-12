@@ -35,7 +35,7 @@ export class JobpillComponent implements OnInit {
     this.jobService.subscribe(this.storage.user['token'], jobId).subscribe(
       res => {
         this.msg = { message: '.. subscription successful ..' };
-        this.storage.topJobs[index]['workers_count']++;
+        (this.detailType === 'top')? this.storage.topJobs[index]['workers_count']++ : this.storage.workerSearch[index]['workers_count']++;
         setTimeout(() => this.msg = { message: '...' }, 2000);
       },
       err => {

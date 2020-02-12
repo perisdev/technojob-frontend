@@ -67,10 +67,8 @@ export class CompanysiteComponent implements OnInit {
     if (form.status === 'VALID') {
 
       form.value['company_id'] = this.storage.user['id'];
-      console.log(form.value);
       this.jobService.createJob(this.storage.user['token'], form.value).subscribe(
         res => {
-          console.log(res);
           this.router.navigate(['/companysite/jobs']);
         },
         err => {

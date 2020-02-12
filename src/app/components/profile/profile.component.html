@@ -14,8 +14,17 @@
     </div>
   </div>
 
-  <!-- worker zone -->
-  <img [src]="user.url_img ? user.url_img : '../../../assets/img/' + storage.getUserType() + '_default.png'"  alt="user image" [ngClass]=getAvatarClass() *ngIf="storage.getUserType() != 'both'">
+  <!-- user profile zone -->
+  <img [src]="user.url_img ? this.storage.getUrl() + 'myprofile/img/' + user.url_img : '../../../assets/img/' + storage.getUserType() + '_default.png'"
+    alt="user image" [ngClass]=getAvatarClass() *ngIf="storage.getUserType() != 'both' && readOnly">
+  
+  <div class="upload" *ngIf="!readOnly">
+    <label for="file-upload" class="bt-upload">
+      <i class="fas fa-cloud-upload-alt"></i>
+      <span id="msg-upload">{{ uploadMsg }}</span>
+    </label>
+    <input id="file-upload" type="file" (change)="imgLoad($event.target.files)" style='display: none;'>
+  </div>
 
   <input [ngClass]="{'input-name': true, 'edit': !readOnly}" name="name" type="text" [(ngModel)]="user.name"
     [readonly]="readOnly" />
@@ -25,7 +34,8 @@
     [readonly]="readOnly" *ngIf="storage.getUserType()=='company'" />
   <input [ngClass]="{'input-email': true, 'edit': !readOnly}" name="email" type="text" [(ngModel)]="user.email"
     [readonly]="readOnly" />
-  <input [ngClass]="{'input-city': true, 'edit': !readOnly}" name="city" type="text" [(ngModel)]="user.city_name" [readonly]="readOnly" />
+  <input [ngClass]="{'input-city': true, 'edit': !readOnly}" name="city" type="text" [(ngModel)]="user.city_name"
+    [readonly]="readOnly" />
 
   <!-- <a [href]= "'mailto:' + user?.email"  class="user-email">{{ user?.email }}</a> -->
 
@@ -52,7 +62,8 @@
 
       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionProfile">
         <div class="card-body">
-          <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.about' rows="2" cols="120" [readonly]="readOnly"></textarea>
+          <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.about' rows="2" cols="120"
+            [readonly]="readOnly"></textarea>
         </div>
       </div>
     </div>
@@ -65,8 +76,8 @@
       </div>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionProfile">
         <div class="card-body">
-          <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.education' rows="3" cols="120"
-            [readonly]="readOnly"></textarea>
+          <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.education' rows="3"
+            cols="120" [readonly]="readOnly"></textarea>
         </div>
       </div>
     </div>
@@ -79,8 +90,8 @@
       </div>
       <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionProfile">
         <div class="card-body">
-          <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.experience' rows="3" cols="120"
-            [readonly]="readOnly"></textarea>
+          <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.experience' rows="3"
+            cols="120" [readonly]="readOnly"></textarea>
         </div>
       </div>
     </div>
@@ -125,8 +136,8 @@
       </div>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionProfile">
         <div class="card-body">
-          <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.description' rows="5" cols="120"
-            [readonly]="readOnly"></textarea>
+          <textarea [ngClass]="{'input-section': true, 'edit': !readOnly}" [(ngModel)]='user.description' rows="5"
+            cols="120" [readonly]="readOnly"></textarea>
         </div>
       </div>
     </div>

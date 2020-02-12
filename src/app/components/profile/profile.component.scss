@@ -44,14 +44,57 @@
   .avatar-company,
   .avatar-worker {
     height: 140px;
+    max-height: 140px;
     max-width: 300px;
     align-self: center;
     margin: 10px 0 0 0;
+
+    border-radius: 4px;
   }
 
   .avatar-worker {
     border-radius: 70px;
+    max-width: 140px;
   }
+
+  .img-load {
+    width: 20px;
+    color: transparent;
+  }
+
+  .bt-upload {
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 140px;
+    width: 140px;
+    background-color: transparent;
+    background-color: $edit-color;
+    color: #fff;
+    border-radius: 70px;
+  }
+
+  #msg-upload {
+    overflow: hidden;
+    width: 135px;
+    text-align: center;
+  }
+
+  // .bt-upload {
+  //   padding: 5px 10px;
+  //   background: #f55d3e;
+  //   color: #fff;
+  //   border: 0px solid #fff;
+  // }
+
+  // .bt-upload:hover {
+  //   color: #fff;
+  //   background: #f7cb15;
+  // }
 
   .input-name,
   .input-varios,
@@ -64,7 +107,7 @@
     border: none;
     text-align: center;
   }
-  
+
   .edit {
     background: $edit-color;
   }
@@ -107,7 +150,6 @@
     margin-top: 10px;
 
     .pass-form {
-
       background: rgba($color: #000000, $alpha: 0.3);
       border-radius: 10px;
       margin-top: 15px;
@@ -134,7 +176,7 @@
       width: 50%;
       margin-top: 20px;
       padding: 2px 5px;
-      
+
       border: 1px solid rgba($color: white, $alpha: 0.7);
       border-radius: 4px;
 
@@ -154,7 +196,8 @@
 
   .accordion {
     margin-top: 20px;
-    width: 100%;
+    // width: 100%;
+    width: 300px;
     color: $job-color;
     overflow-y: auto;
     overflow-x: hidden;

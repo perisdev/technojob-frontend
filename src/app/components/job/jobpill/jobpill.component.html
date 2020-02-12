@@ -4,8 +4,12 @@
   *ngIf="index >= 0 && detailType == 'subscriptions'">
 
   <img class="job-img"
-    [src]="storage.subscriptions[index].company.url_img ? storage.subscriptions[index].company.url_img : '../../../assets/img/company_default.png'"
+    [src]="storage.subscriptions[index].company.url_img ? this.storage.getUrl() + 'myprofile/img/' + storage.subscriptions[index].company.url_img : '../../../assets/img/company_default.png'"
     alt="img">
+
+    <!-- [src]="storage.subscriptions[index].company.url_img ? storage.subscriptions[index].company.url_img : '../../../assets/img/company_default.png'"
+    alt="img"> -->
+
   <p class="job-name">{{ storage.subscriptions[index].job_name }}</p>
   <p class="job-company">{{ storage.subscriptions[index].company.name }}</p>
   <p class="description">{{ storage.subscriptions[index].job_description }}</p>
@@ -40,8 +44,12 @@
   aria-controls="collapseExample" *ngIf="index >= 0 && detailType == 'top'">
 
   <img class="job-img"
-    [src]="storage.topJobs[index].company.url_img ? storage.topJobs[index].company.url_img : '../../../assets/img/company_default.png'"
+    [src]="storage.topJobs[index].company.url_img ? this.storage.getUrl() + 'myprofile/img/' + storage.topJobs[index].company.url_img : '../../../assets/img/company_default.png'"
     alt="img">
+
+    <!-- [src]="storage.topJobs[index].company.url_img ? storage.topJobs[index].company.url_img : '../../../assets/img/company_default.png'"
+    alt="img"> -->
+
   <p class="job-name">{{ storage.topJobs[index].job_name }}</p>
   <p class="job-company">{{ storage.topJobs[index].company.name }}</p>
   <p class="description">{{ storage.topJobs[index].job_description }}</p>
@@ -81,8 +89,9 @@
   aria-controls="collapseExample" *ngIf="index >= 0 && detailType == 'search'">
 
   <img class="job-img"
-    [src]="storage.workerSearch[index].company.url_img ? storage.workerSearch[index].company.url_img : '../../../assets/img/company_default.png'"
+    [src]="storage.workerSearch[index].company.url_img ? this.storage.getUrl() + 'myprofile/img/' + storage.workerSearch[index].company.url_img : '../../../assets/img/company_default.png'"
     alt="img">
+
   <p class="job-name">{{ storage.workerSearch[index].job_name }}</p>
   <p class="job-company">{{ storage.workerSearch[index].company.name }}</p>
   <p class="description">{{ storage.workerSearch[index].job_description }}</p>
@@ -122,7 +131,7 @@
   aria-controls="collapseExample" *ngIf="index >= 0 && detailType == 'jobs'">
 
   <img class="job-img"
-    [src]="storage.user.url_img ? storage.user.url_img : '../../../assets/img/company_default.png'"
+    [src]="storage.user.url_img ? this.storage.getUrl() + 'myprofile/img/' + storage.user.url_img : '../../../assets/img/company_default.png'"
     alt="img">
   <p class="job-name">{{ storage.companyJobs[index].job_name }}</p>
   <p class="job-company">{{ storage.user.name }}</p>

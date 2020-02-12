@@ -4,7 +4,7 @@ data-toggle="collapse" [href]="'#collapse' + + iJob + iWorker" aria-expanded="fa
   aria-controls="collapseExample" *ngIf="detailType == 'workers' && iJob >= 0 && iWorker >= 0 && storage.companyJobs">
 
   <img class="worker-img"
-    [src]="storage.companyJobs[iJob].workers[iWorker].url_img ? storage.companyJobs[iJob].workers[iWorker].url_img : '../../../assets/img/worker_default.png'"
+    [src]="storage.companyJobs[iJob].workers[iWorker].url_img ? this.storage.getUrl() + 'myprofile/img/' + storage.companyJobs[iJob].workers[iWorker].url_img : '../../../assets/img/worker_default.png'"
     alt="img">
 
   <p class="worker-name">{{ storage.companyJobs[iJob].workers[iWorker].name }},
@@ -47,7 +47,7 @@ data-toggle="collapse" [href]="'#collapse' + + iJob + iWorker" aria-expanded="fa
   aria-controls="collapseExample" *ngIf="iJob >= 0 && iWorker >= 0 && storage.companySearch && detailType == 'search'">
 
   <img class="worker-img"
-    [src]="storage.companySearch[iWorker].url_img ? storage.companySearch[iWorker].url_img : '../../../assets/img/worker_default.png'"
+    [src]="storage.companySearch[iWorker].url_img ? this.storage.getUrl() + 'myprofile/img/' + storage.companySearch[iWorker].url_img : '../../../assets/img/worker_default.png'"
     alt="img">
 
   <p class="worker-name">{{ storage.companySearch[iWorker].name }},
@@ -77,10 +77,5 @@ data-toggle="collapse" [href]="'#collapse' + + iJob + iWorker" aria-expanded="fa
     <p class="title">Skills</p>
     <p class="detail">{{ storage.companySearch[iWorker].skills }}</p>
 
-    <!-- <div class="bt-control-wrap">
-      <p class="bt-rejected"  (click)="changeWorkerStatus(0)" *ngIf="storage.companySearch[iWorker].pivot.status != 0">Rejected</p>
-      <p class="bt-pending"  (click)="changeWorkerStatus(1)" *ngIf="storage.companySearch[iWorker].pivot.status != 1">Pending</p>
-      <p class="bt-selected"  (click)="changeWorkerStatus(2)" *ngIf="storage.companySearch[iWorker].pivot.status != 2">Selected</p>
-    </div> -->
   </div>
 </div>

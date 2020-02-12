@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit, DoCheck {
   public readOnly: boolean = true;
   public editPass: boolean = false;
   public msg: object;
+  public uploadMsg: String = "upload img";
 
   constructor(private storage: StorageService,
     private accessService: AccessService,
@@ -64,8 +65,8 @@ export class ProfileComponent implements OnInit, DoCheck {
 
           setTimeout(() => this.msg = {}, 2000);
         }
-      );      
-      
+      );
+
     } else {
       this.msg = { message: '.. complement all data ..' }
 
@@ -99,5 +100,20 @@ export class ProfileComponent implements OnInit, DoCheck {
       }
     );
   }
+
+  public imgLoad(files: FileList) {
+
+    this.uploadMsg = files[0].name;
+
+    this.profileService.imgUpload(this.user['token'], files[0]).subscribe(
+      res => {
+        this.uploadMsg = "img upladed";
+        this.storage.persistUser(res.user);
+        this.user = this.storage.getUser();
+      },
+      err => {
+        console.log("upload error: ", err);
+      });
+	}
 
 }

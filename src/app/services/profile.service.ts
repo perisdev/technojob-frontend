@@ -25,7 +25,7 @@ export class ProfileService {
       }
     })
   }
-  
+
   public pass(token: string, body: object): Observable<object> {
     return this.httpClient.patch(this.storage.getUrl() + 'myprofile/pass', body, {
       headers: {
@@ -40,5 +40,19 @@ export class ProfileService {
         Authorization: token
       }
     })
+  }
+
+  public imgUpload(token: string, img: File) {
+
+    let formData = new FormData();
+    formData.append('image', img);
+
+    return this.httpClient.post<any>(this.storage.getUrl() + 'myprofile/img', formData, {
+      headers: {
+        Authorization: token
+      }
+      // reportProgress: false,
+      // observe: 'events'
+    });
   }
 }
