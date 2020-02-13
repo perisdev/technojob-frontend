@@ -43,4 +43,8 @@ export class WorkerpillComponent implements OnInit {
     );
   }
 
+  public sendMail(email: String) {
+    window.open(`mailto:${email}`);
+  }
+  // window.open('mailto:' + email);
 }

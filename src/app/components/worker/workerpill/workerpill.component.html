@@ -57,6 +57,10 @@ data-toggle="collapse" [href]="'#collapse' + + iJob + iWorker" aria-expanded="fa
   <p class="worker-skills">{{ storage.companySearch[iWorker].skills }}</p>
   <p class="worker-email">{{ storage.companySearch[iWorker].email }}</p>
   <p class="worker-place">{{ storage.getCityById(storage.companySearch[iWorker].city_id) }}</p>
+  <p class="state mail" (click)= "sendMail(storage.companySearch[iWorker].email)">
+  Mail me
+  </p>
+
   <!-- <p class="state" [ngStyle]="{'color': storage.status[storage.companySearch[iWorker].pivot.status].msgColor }">
     {{ storage.status[storage.companySearch[iWorker].pivot.status].msg }} </p>  -->
 

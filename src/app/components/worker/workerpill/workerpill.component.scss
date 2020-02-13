@@ -1,4 +1,5 @@
 @import "../../../../variables.scss";
+
 .wrap {
   text-decoration: none;
   height: 80px;
@@ -13,16 +14,16 @@
 
   border: 1px solid rgba($color: #000000, $alpha: 0.5);
   border-radius: 4px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans",
+  sans-serif;
 
   display: grid;
   grid-template-columns: 80px 300px 1fr 1fr 100px;
   grid-template-rows: 1fr 1fr 1fr;
 
-  grid-template-areas:
-    "img name  about skills   .  "
-    "img email about skills  state"
-    "img place about skills   . ";
+  grid-template-areas: "img name  about skills   .  "
+  "img email about skills  state"
+  "img place about skills   . ";
 
   p {
     margin: 0px;
@@ -89,12 +90,18 @@
     align-self: center;
   }
 
+
   .state {
     display: block;
     grid-area: state;
     align-self: center;
     text-align: center;
     justify-self: center;
+
+  }
+
+  .mail {
+    color: $bt-color;
   }
 }
 
