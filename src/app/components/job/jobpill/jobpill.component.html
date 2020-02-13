@@ -41,7 +41,7 @@
 
 <!--  TOPs Type -->
 <a class="wrap" data-toggle="collapse" [href]="'#collapse' + index" aria-expanded="false"
-  aria-controls="collapseExample" *ngIf="index >= 0 && detailType == 'top'">
+  aria-controls="collapseExample" *ngIf="index >= 0 && detailType == 'top' && storage.topJobs[index].active">
 
   <img class="job-img"
     [src]="storage.topJobs[index].company.url_img ? this.storage.getUrl() + 'myprofile/img/' + storage.topJobs[index].company.url_img : '../../../assets/img/company_default.png'"
@@ -59,7 +59,7 @@
 
 </a>
 
-<div class="collapse" [id]="'collapse' + index" *ngIf="index >= 0 && detailType == 'top'">
+<div class="collapse" [id]="'collapse' + index" *ngIf="index >= 0 && detailType == 'top' && storage.topJobs[index].active">
   <div class="card card-body">
 
     <p class="sector">{{ storage.topJobs[index].company.sector }}</p>
@@ -86,7 +86,7 @@
 
 <!--  SEARCH Type -->
 <a class="wrap" data-toggle="collapse" [href]="'#collapse' + index" aria-expanded="false"
-  aria-controls="collapseExample" *ngIf="index >= 0 && detailType == 'search'">
+  aria-controls="collapseExample" *ngIf="index >= 0 && detailType == 'search' && storage.workerSearch[index].active">
 
   <img class="job-img"
     [src]="storage.workerSearch[index].company.url_img ? this.storage.getUrl() + 'myprofile/img/' + storage.workerSearch[index].company.url_img : '../../../assets/img/company_default.png'"
@@ -101,7 +101,7 @@
 
 </a>
 
-<div class="collapse" [id]="'collapse' + index" *ngIf="index >= 0 && detailType == 'search'">
+<div class="collapse" [id]="'collapse' + index" *ngIf="index >= 0 && detailType == 'search' && storage.workerSearch[index].active">
   <div class="card card-body">
 
     <p class="sector">{{ storage.workerSearch[index].company.sector }}</p>
